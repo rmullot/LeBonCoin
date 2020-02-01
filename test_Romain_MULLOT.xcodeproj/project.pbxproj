@@ -14,6 +14,12 @@
 		7A57293923E5D5BE00085478 /* test_Romain_MULLOTTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A57293823E5D5BE00085478 /* test_Romain_MULLOTTests.swift */; };
 		7A57294423E5D5BE00085478 /* test_Romain_MULLOTUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A57294323E5D5BE00085478 /* test_Romain_MULLOTUITests.swift */; };
 		7A57295223E5DD4C00085478 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A57295123E5DD4C00085478 /* Default-568h@2x.png */; };
+		7A57296923E60BD300085478 /* NetworkActivityService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A57296323E60BD300085478 /* NetworkActivityService.swift */; };
+		7A57296B23E60BD300085478 /* ReachabilityService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A57296523E60BD300085478 /* ReachabilityService.swift */; };
+		7A57296C23E60BD300085478 /* MultiCastDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A57296623E60BD300085478 /* MultiCastDelegate.swift */; };
+		7A57296D23E60BD300085478 /* DispatchQueue+Cancellable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A57296723E60BD300085478 /* DispatchQueue+Cancellable.swift */; };
+		7A57296E23E60BD300085478 /* MutexCounter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A57296823E60BD300085478 /* MutexCounter.swift */; };
+		7A57297023E60C1D00085478 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A57296F23E60C1D00085478 /* Reachability.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +53,12 @@
 		7A57294323E5D5BE00085478 /* test_Romain_MULLOTUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = test_Romain_MULLOTUITests.swift; sourceTree = "<group>"; };
 		7A57294523E5D5BE00085478 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7A57295123E5DD4C00085478 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		7A57296323E60BD300085478 /* NetworkActivityService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkActivityService.swift; sourceTree = "<group>"; };
+		7A57296523E60BD300085478 /* ReachabilityService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReachabilityService.swift; sourceTree = "<group>"; };
+		7A57296623E60BD300085478 /* MultiCastDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MultiCastDelegate.swift; sourceTree = "<group>"; };
+		7A57296723E60BD300085478 /* DispatchQueue+Cancellable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DispatchQueue+Cancellable.swift"; sourceTree = "<group>"; };
+		7A57296823E60BD300085478 /* MutexCounter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MutexCounter.swift; sourceTree = "<group>"; };
+		7A57296F23E60C1D00085478 /* Reachability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +110,7 @@
 		7A57291D23E5D5BB00085478 /* test_Romain_MULLOT */ = {
 			isa = PBXGroup;
 			children = (
+				7A57296223E60BD300085478 /* Network */,
 				7A57291E23E5D5BB00085478 /* AppDelegate.swift */,
 				7A57292223E5D5BB00085478 /* ViewController.swift */,
 				7A57292A23E5D5BD00085478 /* Assets.xcassets */,
@@ -123,6 +136,19 @@
 				7A57294523E5D5BE00085478 /* Info.plist */,
 			);
 			path = test_Romain_MULLOTUITests;
+			sourceTree = "<group>";
+		};
+		7A57296223E60BD300085478 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				7A57296323E60BD300085478 /* NetworkActivityService.swift */,
+				7A57296523E60BD300085478 /* ReachabilityService.swift */,
+				7A57296623E60BD300085478 /* MultiCastDelegate.swift */,
+				7A57296723E60BD300085478 /* DispatchQueue+Cancellable.swift */,
+				7A57296823E60BD300085478 /* MutexCounter.swift */,
+				7A57296F23E60C1D00085478 /* Reachability.swift */,
+			);
+			path = Network;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -255,9 +281,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7A57296E23E60BD300085478 /* MutexCounter.swift in Sources */,
+				7A57296D23E60BD300085478 /* DispatchQueue+Cancellable.swift in Sources */,
 				7A57292923E5D5BB00085478 /* test_Romain_MULLOT.xcdatamodeld in Sources */,
+				7A57296C23E60BD300085478 /* MultiCastDelegate.swift in Sources */,
+				7A57296B23E60BD300085478 /* ReachabilityService.swift in Sources */,
 				7A57292323E5D5BB00085478 /* ViewController.swift in Sources */,
 				7A57291F23E5D5BB00085478 /* AppDelegate.swift in Sources */,
+				7A57297023E60C1D00085478 /* Reachability.swift in Sources */,
+				7A57296923E60BD300085478 /* NetworkActivityService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
