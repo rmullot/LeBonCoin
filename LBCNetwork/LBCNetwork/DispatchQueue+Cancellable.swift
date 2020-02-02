@@ -9,7 +9,7 @@
 import Foundation
 
 // Code permitting to simplify the posibility to cancel a task after some seconds if we need it.
-extension DispatchQueue {
+public extension DispatchQueue {
   typealias CancellableClosure = (() -> Void)?
 
   func asyncAfter(secondsDeadline: TimeInterval, qos: DispatchQoS = .default, flags: DispatchWorkItemFlags = [], execute work: @escaping @convention(block) () -> Swift.Void) {
