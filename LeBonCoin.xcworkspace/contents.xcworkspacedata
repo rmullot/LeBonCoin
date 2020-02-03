@@ -10,4 +10,7 @@
    <FileRef
       location = "group:LBCAPI/LBCAPI.xcodeproj">
    </FileRef>
+   <FileRef
+      location = "group:LBCAPI/../LBCCore/LBCCore.xcodeproj">
+   </FileRef>
 </Workspace>

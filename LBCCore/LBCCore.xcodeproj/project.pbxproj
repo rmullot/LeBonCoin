@@ -10,6 +10,10 @@
 		7A10392B23E8223B00A1A25F /* LBCCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A10392123E8223B00A1A25F /* LBCCore.framework */; };
 		7A10393023E8223B00A1A25F /* LBCCoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A10392F23E8223B00A1A25F /* LBCCoreTests.swift */; };
 		7A10393223E8223B00A1A25F /* LBCCore.h in Headers */ = {isa = PBXBuildFile; fileRef = 7A10392423E8223B00A1A25F /* LBCCore.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7A10393E23E83E9900A1A25F /* String+LBCCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A10393B23E83E9900A1A25F /* String+LBCCore.swift */; };
+		7A10393F23E83E9900A1A25F /* Date+LBCCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A10393C23E83E9900A1A25F /* Date+LBCCore.swift */; };
+		7A10394B23E8415100A1A25F /* FormatterService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A10394A23E8415100A1A25F /* FormatterService.swift */; };
+		7A10394D23E8491300A1A25F /* Numeric+LBCCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A10394C23E8491300A1A25F /* Numeric+LBCCore.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,6 +33,10 @@
 		7A10392A23E8223B00A1A25F /* LBCCoreTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LBCCoreTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A10392F23E8223B00A1A25F /* LBCCoreTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LBCCoreTests.swift; sourceTree = "<group>"; };
 		7A10393123E8223B00A1A25F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7A10393B23E83E9900A1A25F /* String+LBCCore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+LBCCore.swift"; sourceTree = "<group>"; };
+		7A10393C23E83E9900A1A25F /* Date+LBCCore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Date+LBCCore.swift"; sourceTree = "<group>"; };
+		7A10394A23E8415100A1A25F /* FormatterService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormatterService.swift; sourceTree = "<group>"; };
+		7A10394C23E8491300A1A25F /* Numeric+LBCCore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Numeric+LBCCore.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +79,10 @@
 		7A10392323E8223B00A1A25F /* LBCCore */ = {
 			isa = PBXGroup;
 			children = (
+				7A10394C23E8491300A1A25F /* Numeric+LBCCore.swift */,
+				7A10394A23E8415100A1A25F /* FormatterService.swift */,
+				7A10393C23E83E9900A1A25F /* Date+LBCCore.swift */,
+				7A10393B23E83E9900A1A25F /* String+LBCCore.swift */,
 				7A10392423E8223B00A1A25F /* LBCCore.h */,
 				7A10392523E8223B00A1A25F /* Info.plist */,
 			);
@@ -148,6 +160,7 @@
 				TargetAttributes = {
 					7A10392023E8223B00A1A25F = {
 						CreatedOnToolsVersion = 11.3.1;
+						LastSwiftMigration = 1130;
 					};
 					7A10392923E8223B00A1A25F = {
 						CreatedOnToolsVersion = 11.3.1;
@@ -195,6 +208,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7A10394B23E8415100A1A25F /* FormatterService.swift in Sources */,
+				7A10394D23E8491300A1A25F /* Numeric+LBCCore.swift in Sources */,
+				7A10393F23E83E9900A1A25F /* Date+LBCCore.swift in Sources */,
+				7A10393E23E83E9900A1A25F /* String+LBCCore.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -340,6 +357,7 @@
 		7A10393623E8223B00A1A25F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -355,6 +373,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = leboncoin.LBCCore;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -363,6 +382,7 @@
 		7A10393723E8223B00A1A25F /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -386,6 +406,7 @@
 		7A10393923E8223B00A1A25F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = LBCCoreTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -403,6 +424,7 @@
 		7A10393A23E8223B00A1A25F /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = LBCCoreTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
