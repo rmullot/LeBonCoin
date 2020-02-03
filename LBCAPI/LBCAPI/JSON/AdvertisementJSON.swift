@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import LBCCore
 
 public struct AdvertisementJSON: Codable {
     public var idAdvertisement: Int = 0
@@ -49,8 +50,7 @@ public struct AdvertisementJSON: Codable {
         description = try values.decode(String.self, forKey: .description)
         price = try values.decode(Float.self, forKey: .price)
         let creationDateString = try values.decode(String.self, forKey: .creationDate)
-        //TODO: To create a cache for date
-        creationDate = Date()
+        creationDate = creationDateString.iso8601Date
         imageUrls = try values.decodeIfPresent(ImagesJSON.self, forKey: .imageUrls)
         isUrgent = try values.decode(Bool.self, forKey: .isUrgent)
     }
