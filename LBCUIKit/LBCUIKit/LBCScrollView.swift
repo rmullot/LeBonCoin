@@ -21,15 +21,17 @@ public class LBCScrollView: UIScrollView {
         return contentView
     }()
     
-    public override init(frame: CGRect) {
+    override init(frame: CGRect) {
         super.init(frame: frame)
         setup()
     }
-    public required init?(coder aDecoder: NSCoder) {
+    
+    required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         setup()
     }
-    public override var backgroundColor: UIColor? {
+    
+    override public var backgroundColor: UIColor? {
         didSet {
             contentView.backgroundColor = backgroundColor
         }
