@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import CoreData
+import LBCAPI
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {

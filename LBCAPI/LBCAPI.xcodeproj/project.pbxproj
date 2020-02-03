@@ -17,9 +17,27 @@
 		7A5729D423E7542800085478 /* ImagesJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A5729D323E7542800085478 /* ImagesJSON.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		7A10394623E840B700A1A25F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7A10394123E840B700A1A25F /* LBCCore.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 7A10392123E8223B00A1A25F;
+			remoteInfo = LBCCore;
+		};
+		7A10394823E840B700A1A25F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7A10394123E840B700A1A25F /* LBCCore.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 7A10392A23E8223B00A1A25F;
+			remoteInfo = LBCCoreTests;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		7A10391323E78D4600A1A25F /* APIService+Categories.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "APIService+Categories.swift"; sourceTree = "<group>"; };
 		7A10391523E78DA500A1A25F /* APIService+Advertisements.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "APIService+Advertisements.swift"; sourceTree = "<group>"; };
+		7A10394123E840B700A1A25F /* LBCCore.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = LBCCore.xcodeproj; path = ../LBCCore/LBCCore.xcodeproj; sourceTree = "<group>"; };
 		7A5729BF23E744BB00085478 /* LBCAPI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = LBCAPI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A5729C223E744BB00085478 /* LBCAPI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LBCAPI.h; sourceTree = "<group>"; };
 		7A5729C323E744BB00085478 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -51,9 +69,19 @@
 			path = APIService;
 			sourceTree = "<group>";
 		};
+		7A10394223E840B700A1A25F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				7A10394723E840B700A1A25F /* LBCCore.framework */,
+				7A10394923E840B700A1A25F /* LBCCoreTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		7A5729B523E744BB00085478 = {
 			isa = PBXGroup;
 			children = (
+				7A10394123E840B700A1A25F /* LBCCore.xcodeproj */,
 				7A5729C123E744BB00085478 /* LBCAPI */,
 				7A5729C023E744BB00085478 /* Products */,
 			);
@@ -147,12 +175,35 @@
 			mainGroup = 7A5729B523E744BB00085478;
 			productRefGroup = 7A5729C023E744BB00085478 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 7A10394223E840B700A1A25F /* Products */;
+					ProjectRef = 7A10394123E840B700A1A25F /* LBCCore.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				7A5729BE23E744BB00085478 /* LBCAPI */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		7A10394723E840B700A1A25F /* LBCCore.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = LBCCore.framework;
+			remoteRef = 7A10394623E840B700A1A25F /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		7A10394923E840B700A1A25F /* LBCCoreTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = LBCCoreTests.xctest;
+			remoteRef = 7A10394823E840B700A1A25F /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		7A5729BD23E744BB00085478 /* Resources */ = {

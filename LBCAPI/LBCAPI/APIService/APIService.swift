@@ -70,7 +70,7 @@ public final class APIService: APIServiceProtocol {
 
 internal extension APIService {
     
-    internal func getDataWith(urlString: String, type: TypeWebService, completion: @escaping (Result<Data>) -> Void) {
+    func getDataWith(urlString: String, type: TypeWebService, completion: @escaping (Result<Data>) -> Void) {
         guard onlineMode != .offline else { return completion(.error(WebServiceErrorMessage.noNetwork.rawValue)) }
         guard let url = URL(string: urlString) else { return completion(.error(WebServiceErrorMessage.invalidURL.rawValue)) }
         var request = URLRequest(url: url)
