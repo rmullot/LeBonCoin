@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		7A10395D23E877DE00A1A25F /* LBCUIKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 7A10395B23E877DE00A1A25F /* LBCUIKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7A10396423E878AA00A1A25F /* LBCScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A10396323E878AA00A1A25F /* LBCScrollView.swift */; };
+		7A10396623E87EA700A1A25F /* UIView+LBCUIKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A10396523E87EA700A1A25F /* UIView+LBCUIKit.swift */; };
+		7A10396923E88A3E00A1A25F /* UITableView+LBCUIKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A10396823E88A3E00A1A25F /* UITableView+LBCUIKit.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -16,6 +18,8 @@
 		7A10395B23E877DE00A1A25F /* LBCUIKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LBCUIKit.h; sourceTree = "<group>"; };
 		7A10395C23E877DE00A1A25F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7A10396323E878AA00A1A25F /* LBCScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LBCScrollView.swift; sourceTree = "<group>"; };
+		7A10396523E87EA700A1A25F /* UIView+LBCUIKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+LBCUIKit.swift"; sourceTree = "<group>"; };
+		7A10396823E88A3E00A1A25F /* UITableView+LBCUIKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+LBCUIKit.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -48,11 +52,21 @@
 		7A10395A23E877DE00A1A25F /* LBCUIKit */ = {
 			isa = PBXGroup;
 			children = (
+				7A10396723E88A2000A1A25F /* Extensions */,
 				7A10395B23E877DE00A1A25F /* LBCUIKit.h */,
 				7A10395C23E877DE00A1A25F /* Info.plist */,
 				7A10396323E878AA00A1A25F /* LBCScrollView.swift */,
 			);
 			path = LBCUIKit;
+			sourceTree = "<group>";
+		};
+		7A10396723E88A2000A1A25F /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				7A10396523E87EA700A1A25F /* UIView+LBCUIKit.swift */,
+				7A10396823E88A3E00A1A25F /* UITableView+LBCUIKit.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -136,6 +150,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				7A10396423E878AA00A1A25F /* LBCScrollView.swift in Sources */,
+				7A10396623E87EA700A1A25F /* UIView+LBCUIKit.swift in Sources */,
+				7A10396923E88A3E00A1A25F /* UITableView+LBCUIKit.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
