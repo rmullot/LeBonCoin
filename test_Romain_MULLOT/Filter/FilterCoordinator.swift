@@ -9,37 +9,44 @@
 import Foundation
 import UIKit
 
+//TODO: To do the difference between cancel and validate filters
 protocol FilterCoordinatorDelegate: AnyObject {
-    
+    func didFinish(_ coordinator: FilterCoordinator)
 }
 
 final class FilterCoordinator: Coordinator {
     
     var childCoordinators = [Coordinator]()
     
-    let rootViewController: UINavigationController = UINavigationController()
+    weak var rootViewController: UINavigationController?
+    weak var delegate: FilterCoordinatorDelegate?
     
-    init() {
-        
+    init(rootViewController: UINavigationController) {
+        self.rootViewController = rootViewController
     }
     
     func start() {
         let viewModel = FilterViewModel()
         viewModel.delegate = self
         let filterViewController = FilterViewController(viewModel: viewModel)
-        rootViewController.pushViewController(filterViewController, animated: true)
+        rootViewController?.pushViewController(filterViewController, animated: true)
     }
     
 }
 
 extension FilterCoordinator: FilterViewModelDelegate {
     func didTapCancel(viewModel: FilterViewModelProtocol) {
-        
+        if let navigationController = rootViewController {
+            navigationController.popViewController(animated: true)
+        }
+        delegate?.didFinish(self)
     }
     
     func didTapValidate(viewModel: FilterViewModelProtocol) {
-        
+        if let navigationController = rootViewController {
+            navigationController.popViewController(animated: true)
+        }
+        delegate?.didFinish(self)
     }
-    
     
 }

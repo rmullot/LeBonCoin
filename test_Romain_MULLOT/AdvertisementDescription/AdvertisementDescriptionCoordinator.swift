@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 protocol AdvertisementDescriptionCoordinatorDelegate: AnyObject {
-    
+    func didFinish(_ coordinator: AdvertisementDescriptionCoordinator)
 }
 
 final class AdvertisementDescriptionCoordinator: Coordinator {
@@ -18,6 +18,7 @@ final class AdvertisementDescriptionCoordinator: Coordinator {
     var childCoordinators = [Coordinator]()
     
     weak var rootViewController: UINavigationController?
+    weak var delegate: AdvertisementDescriptionCoordinatorDelegate?
     
     init(rootViewController: UINavigationController) {
         self.rootViewController = rootViewController
@@ -32,12 +33,11 @@ final class AdvertisementDescriptionCoordinator: Coordinator {
 }
 
 extension AdvertisementDescriptionCoordinator: AdvertisementDescriptionViewModelDelegate {
-    func didTapCancel(viewModel: AdvertisementDescriptionViewModelProtocol) {
-        
-    }
-
-    func didTapValidate(viewModel: AdvertisementDescriptionViewModelProtocol) {
-        
+    func didTapBack(viewModel: AdvertisementDescriptionViewModelProtocol) {
+        if let navigationController = rootViewController {
+            navigationController.popViewController(animated: true)
+        }
+        delegate?.didFinish(self)
     }
 }
 

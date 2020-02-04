@@ -33,12 +33,28 @@ final class ApplicationCoordinator: Coordinator {
 
 extension ApplicationCoordinator: AdvertisementsViewModelDelegate {
     func didTapFilter(viewModel: AdvertisementsViewModelProtocol) {
-        
+        let filterCoordinator = FilterCoordinator(rootViewController: rootViewController)
+        filterCoordinator.delegate = self
+        addChildCoordinator(filterCoordinator)
+        filterCoordinator.start()
     }
     
-    func didTapAdvertisement(viewModel: AdvertisementsViewModelProtocol) {
-        
+    func didTapAdvertisement(viewModel: AdvertisementDescriptionViewModelProtocol) {
+        let advertisementDescription = AdvertisementDescriptionCoordinator(rootViewController: rootViewController)
+        advertisementDescription.delegate = self
+        addChildCoordinator(advertisementDescription)
+        advertisementDescription.start()
     }
-    
-    
+}
+
+extension ApplicationCoordinator: FilterCoordinatorDelegate {
+    func didFinish(_ coordinator: FilterCoordinator) {
+        removeChildCoordinator(coordinator)
+    }
+}
+
+extension ApplicationCoordinator: AdvertisementDescriptionCoordinatorDelegate {
+    func didFinish(_ coordinator: AdvertisementDescriptionCoordinator) {
+        removeChildCoordinator(coordinator)
+    }
 }

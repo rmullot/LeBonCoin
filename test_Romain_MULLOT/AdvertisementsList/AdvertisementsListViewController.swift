@@ -43,7 +43,14 @@ final class AdvertisementsListViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
+}
+
+extension AdvertisementsListViewController {
     
+    @objc
+    func didTapFilterButton(_ sender: UIButton) {
+        viewModel.didTapFilter()
+    }
 }
 
 private extension AdvertisementsListViewController {
@@ -69,6 +76,7 @@ private extension AdvertisementsListViewController {
 }
 
 extension AdvertisementsListViewController: UITableViewDelegate {
+    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return advertisementHeightRow
     }
@@ -96,7 +104,16 @@ extension AdvertisementsListViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let header = tableView.dequeueReusableView(CategoryFilterTableViewHeader.self)
+        header.filterButton.addTarget(self, action: .didTapFilterButton, for: .touchUpInside)
         return header
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        viewModel.didTapFilter()
+    }
+    
+}
+
+private extension Selector {
+    static let didTapFilterButton = #selector(AdvertisementsListViewController.didTapFilterButton(_:))
 }

@@ -34,6 +34,7 @@ private extension FilterViewController {
     
     func setup() {
         view.isOpaque = true
+        view.backgroundColor = .white
         setupInterface()
         setupConstraints()
     }

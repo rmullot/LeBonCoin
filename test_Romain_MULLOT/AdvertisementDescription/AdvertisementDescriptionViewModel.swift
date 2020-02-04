@@ -13,8 +13,7 @@ protocol AdvertisementDescriptionViewModelProtocol: AnyObject {
 }
 
 protocol AdvertisementDescriptionViewModelDelegate: AnyObject {
-    func didTapCancel(viewModel: AdvertisementDescriptionViewModelProtocol)
-    func didTapValidate(viewModel: AdvertisementDescriptionViewModelProtocol)
+    func didTapBack(viewModel: AdvertisementDescriptionViewModelProtocol)
 }
 
 final class AdvertisementDescriptionViewModel: AdvertisementDescriptionViewModelProtocol {

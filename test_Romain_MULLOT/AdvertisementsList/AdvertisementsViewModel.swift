@@ -14,12 +14,14 @@ protocol AdvertisementsViewModelProtocol: AnyObject {
     func getPrice(index: Int) -> String
     func getTitle(index: Int) -> String
     func getCategory(index: Int) -> String
+    func didTapFilter()
+    func didTapAdvertisement(index: Int)
     var delegate: AdvertisementsViewModelDelegate? { get set }
 }
 
 protocol AdvertisementsViewModelDelegate: AnyObject {
     func didTapFilter(viewModel: AdvertisementsViewModelProtocol)
-    func didTapAdvertisement(viewModel: AdvertisementsViewModelProtocol)
+    func didTapAdvertisement(viewModel: AdvertisementDescriptionViewModelProtocol)
 }
 
 final class AdvertisementsViewModel: AdvertisementsViewModelProtocol {
@@ -46,4 +48,22 @@ final class AdvertisementsViewModel: AdvertisementsViewModelProtocol {
         return "category"
     }
     
+    func didTapFilter() {
+        delegate?.didTapFilter(viewModel: self)
+    }
+    
+    func didTapAdvertisement(index: Int) {
+        //TODO: to replace by the good viewModel
+        guard index > 0, index < 1 else { return }
+        let descriptionViewModel = getAdvertisementDescriptionViewModel(index: index)
+        delegate?.didTapAdvertisement(viewModel: descriptionViewModel)
+    }
+    
+}
+
+private extension AdvertisementsViewModel {
+    
+    func getAdvertisementDescriptionViewModel(index: Int) -> AdvertisementDescriptionViewModelProtocol {
+        return AdvertisementDescriptionViewModel()
+    }
 }
