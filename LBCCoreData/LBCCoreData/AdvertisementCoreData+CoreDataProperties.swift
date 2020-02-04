@@ -17,13 +17,13 @@ extension AdvertisementCoreData {
     }
 
     @NSManaged public var idAdvertisement: Int64
-    @NSManaged public var title: String?
-    @NSManaged public var descriptionAdvert: String?
+    @NSManaged public var title: String
+    @NSManaged public var descriptionAdvert: String
     @NSManaged public var price: Float
-    @NSManaged public var creationDate: Date?
+    @NSManaged public var creationDate: Date
     @NSManaged public var isUrgent: Bool
-    @NSManaged public var category: CategoryCoreData?
-    @NSManaged public var images: NSSet?
+    @NSManaged public var category: CategoryCoreData
+    @NSManaged public var images: Set<ImageCoreData>?
 
 }
 

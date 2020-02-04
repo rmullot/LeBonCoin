@@ -16,8 +16,8 @@ extension ImageCoreData {
         return NSFetchRequest<ImageCoreData>(entityName: "ImageCoreData")
     }
 
-    @NSManaged public var url: String?
-    @NSManaged public var type: String?
+    @NSManaged public var url: String
+    @NSManaged public var type: String
     @NSManaged public var advertisement: AdvertisementCoreData?
 
 }
