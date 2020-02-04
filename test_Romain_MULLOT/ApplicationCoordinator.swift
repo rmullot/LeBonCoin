@@ -22,10 +22,23 @@ final class ApplicationCoordinator: Coordinator {
     
     func start() {
         let viewModel = AdvertisementsViewModel()
+        viewModel.delegate = self
         let advertisementsListViewController = AdvertisementsListViewController(viewModel: viewModel)
         rootViewController.pushViewController(advertisementsListViewController, animated: false)
         window?.rootViewController = rootViewController
         window?.makeKeyAndVisible()
     }
+    
+}
+
+extension ApplicationCoordinator: AdvertisementsViewModelDelegate {
+    func didTapFilter(viewModel: AdvertisementsViewModelProtocol) {
+        
+    }
+    
+    func didTapAdvertisement(viewModel: AdvertisementsViewModelProtocol) {
+        
+    }
+    
     
 }

@@ -8,15 +8,23 @@
 
 import Foundation
 
-protocol AdvertisementsViewModelProtocol {
+protocol AdvertisementsViewModelProtocol: AnyObject {
     var advertisementsCount: Int { get }
     func getIsNotUrgent(index: Int) -> Bool
     func getPrice(index: Int) -> String
     func getTitle(index: Int) -> String
     func getCategory(index: Int) -> String
+    var delegate: AdvertisementsViewModelDelegate? { get set }
+}
+
+protocol AdvertisementsViewModelDelegate: AnyObject {
+    func didTapFilter(viewModel: AdvertisementsViewModelProtocol)
+    func didTapAdvertisement(viewModel: AdvertisementsViewModelProtocol)
 }
 
 final class AdvertisementsViewModel: AdvertisementsViewModelProtocol {
+    
+    weak var delegate: AdvertisementsViewModelDelegate?
     
     var advertisementsCount: Int {
         return 12
