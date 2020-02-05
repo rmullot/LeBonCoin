@@ -17,8 +17,8 @@ extension CategoryCoreData {
     }
 
     @NSManaged public var idCategory: Int16
-    @NSManaged public var name: String?
-    @NSManaged public var advertisements: NSSet?
+    @NSManaged public var name: String
+    @NSManaged public var advertisements: Set<AdvertisementCoreData>?
 
 }
 

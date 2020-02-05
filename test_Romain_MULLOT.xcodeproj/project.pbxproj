@@ -129,13 +129,13 @@
 			path = AdvertisementDescription;
 			sourceTree = "<group>";
 		};
-		7A1039A323E9F57500A1A25F /* Adaptators */ = {
+		7A1039A323E9F57500A1A25F /* Domain Model */ = {
 			isa = PBXGroup;
 			children = (
 				7A1039A423E9F59500A1A25F /* Advertisement.swift */,
 				7A1039A623E9F5A300A1A25F /* Category.swift */,
 			);
-			path = Adaptators;
+			path = "Domain Model";
 			sourceTree = "<group>";
 		};
 		7A57291223E5D5BB00085478 = {
@@ -162,7 +162,7 @@
 		7A57291D23E5D5BB00085478 /* test_Romain_MULLOT */ = {
 			isa = PBXGroup;
 			children = (
-				7A1039A323E9F57500A1A25F /* Adaptators */,
+				7A1039A323E9F57500A1A25F /* Domain Model */,
 				7A10398123E98C3600A1A25F /* AdvertisementDescription */,
 				7A10398023E98C1800A1A25F /* Filter */,
 				7A10397323E8E8A800A1A25F /* AdvertisementsList */,
