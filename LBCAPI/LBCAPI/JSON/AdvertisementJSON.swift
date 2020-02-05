@@ -31,17 +31,6 @@ public struct AdvertisementJSON: Codable {
         
     }
     
-    public init(idAdvertisement: Int = 0, idCategory: Int = 0, title: String = "", description: String = "", price: Float = 0, creationDate: Date = Date(), imageUrls: ImagesJSON?, isUrgent: Bool = false) {
-        self.idAdvertisement = idAdvertisement
-        self.idCategory = idCategory
-        self.title = title
-        self.description = description
-        self.price = price
-        self.creationDate = creationDate
-        self.imageUrls = imageUrls
-        self.isUrgent = isUrgent
-    }
-    
     public init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
         idAdvertisement = try values.decode(Int.self, forKey: .idAdvertisement)

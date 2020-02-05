@@ -8,11 +8,6 @@
 
 import LBCNetwork
 
-public enum Result<T> {
-    case success(T)
-    case error(String)
-}
-
 public protocol APIServiceProtocol: APIAdvertisementsProtocol, APICategoriesProtocol {
     func cancelRequests()
 }
