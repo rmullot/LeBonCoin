@@ -58,6 +58,19 @@ final class AdvertisementCell: UITableViewCell {
         titleLabel.text = viewModel.getTitle(index: index)
         priceLabel.text = viewModel.getPrice(index: index)
         categoryLabel.text = viewModel.getCategory(index: index)
+        let currentUrl = viewModel.getThumbImage(index: index)
+        photoView.loadImage(urlString: currentUrl, placeHolder: UIImage(named:"placeholder"), completionHandler: { [ weak self] (result) in
+                guard let strongSelf = self else { return }
+                switch result {
+                case .success(let image, let urlString):
+                    if currentUrl == urlString {
+                        strongSelf.photoView.image = image
+                    } else {
+                        strongSelf.photoView.image = UIImage(named:"placeholder")
+                    }
+                case .failure(_): break
+                }
+        })
     }
     
     override func prepareForReuse() {
@@ -98,31 +111,33 @@ private extension AdvertisementCell {
     }
     
     func setupConstraints() {
+        let defaultMargin: CGFloat = 10
+        
         NSLayoutConstraint.activate([
-            photoView.topAnchor.constraint(equalTo: topAnchor, constant: 10),
-            photoView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -10),
-            photoView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10),
+            photoView.topAnchor.constraint(equalTo: topAnchor, constant: defaultMargin),
+            photoView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -defaultMargin),
+            photoView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: defaultMargin),
             photoView.widthAnchor.constraint(equalToConstant: 95),
             photoView.heightAnchor.constraint(equalTo: photoView.widthAnchor),
             
             titleLabel.topAnchor.constraint(equalTo: topAnchor, constant: 2),
-            titleLabel.leadingAnchor.constraint(equalTo: photoView.trailingAnchor, constant: 10),
-            titleLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10),
+            titleLabel.leadingAnchor.constraint(equalTo: photoView.trailingAnchor, constant: defaultMargin),
+            titleLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -defaultMargin),
             titleLabel.heightAnchor.constraint(equalToConstant: 53),
             
             priceLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor),
-            priceLabel.leadingAnchor.constraint(equalTo: photoView.trailingAnchor, constant: 10),
-            priceLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10),
+            priceLabel.leadingAnchor.constraint(equalTo: photoView.trailingAnchor, constant: defaultMargin),
+            priceLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -defaultMargin),
             priceLabel.heightAnchor.constraint(equalToConstant: 25),
             
             categoryLabel.topAnchor.constraint(equalTo: priceLabel.bottomAnchor),
-            categoryLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -10),
-            categoryLabel.leadingAnchor.constraint(equalTo: photoView.trailingAnchor, constant: 10),
-            categoryLabel.trailingAnchor.constraint(equalTo: urgencyIcon.leadingAnchor, constant: -10),
+            categoryLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -defaultMargin),
+            categoryLabel.leadingAnchor.constraint(equalTo: photoView.trailingAnchor, constant: defaultMargin),
+            categoryLabel.trailingAnchor.constraint(equalTo: urgencyIcon.leadingAnchor, constant: -defaultMargin),
             categoryLabel.heightAnchor.constraint(equalToConstant: 25),
             
-            urgencyIcon.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -10),
-            urgencyIcon.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10),
+            urgencyIcon.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -defaultMargin),
+            urgencyIcon.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -defaultMargin),
             urgencyIcon.widthAnchor.constraint(equalToConstant: 20),
             urgencyIcon.heightAnchor.constraint(equalTo: urgencyIcon.widthAnchor)
         ])

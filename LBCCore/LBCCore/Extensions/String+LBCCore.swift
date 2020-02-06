@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 public extension String {
     
@@ -14,6 +15,13 @@ public extension String {
     var isNotEmpty: Bool {
         return !isEmpty
     }
+    
+    func isUrl(_ completionHandler: @escaping (Bool, URL?) -> Void ) {
+       guard self.isNotEmpty, let url = URL(string: self) else {
+         return completionHandler(false, nil)
+       }
+       return completionHandler(UIApplication.shared.canOpenURL(url), url)
+     }
     
     /// Return a converted iso8601 Date
     var iso8601Date: Date {
