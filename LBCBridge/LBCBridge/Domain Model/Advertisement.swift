@@ -9,7 +9,7 @@
 import Foundation
 import LBCCoreData
 
-final class Advertisement {
+final public class Advertisement {
     
     let idAdvertisement: Int
     let idCategory: Int
