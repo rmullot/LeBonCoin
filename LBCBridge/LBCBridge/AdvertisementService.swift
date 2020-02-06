@@ -23,10 +23,10 @@ public final class AdvertisementService: AdvertisementServiceProtocol {
     public static let sharedInstance = AdvertisementService()
     
     public func getAdvertisements(idCategories: [Int] = [], completionHandler: @escaping (Result<[Advertisement]?, Error>) -> Void) {
-        let sortParameters = [["isUrgent": true], ["creationDate": false]]
+        let sortParameters = [["isUrgent": false], ["creationDate": false]]
         var filterPredicate: NSPredicate? = nil
         if idCategories.isNotEmpty {
-            filterPredicate = NSPredicate(format: "%K IN %@", argumentArray: [\AdvertisementCoreData.category.idCategory, idCategories])
+            filterPredicate = NSPredicate(format: "%@ IN %@", argumentArray: [\AdvertisementCoreData.category.idCategory, idCategories])
         }
         
         if APIService.sharedInstance.onlineMode != .offline {
