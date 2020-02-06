@@ -105,17 +105,17 @@ private extension AdvertisementCell {
             photoView.widthAnchor.constraint(equalToConstant: 95),
             photoView.heightAnchor.constraint(equalTo: photoView.widthAnchor),
             
-            titleLabel.topAnchor.constraint(equalTo: topAnchor, constant: 10),
+            titleLabel.topAnchor.constraint(equalTo: topAnchor, constant: 2),
             titleLabel.leadingAnchor.constraint(equalTo: photoView.trailingAnchor, constant: 10),
             titleLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10),
-            titleLabel.heightAnchor.constraint(equalToConstant: 25),
+            titleLabel.heightAnchor.constraint(equalToConstant: 53),
             
-            priceLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 10),
+            priceLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor),
             priceLabel.leadingAnchor.constraint(equalTo: photoView.trailingAnchor, constant: 10),
             priceLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10),
             priceLabel.heightAnchor.constraint(equalToConstant: 25),
             
-            categoryLabel.topAnchor.constraint(equalTo: priceLabel.bottomAnchor, constant: 10),
+            categoryLabel.topAnchor.constraint(equalTo: priceLabel.bottomAnchor),
             categoryLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -10),
             categoryLabel.leadingAnchor.constraint(equalTo: photoView.trailingAnchor, constant: 10),
             categoryLabel.trailingAnchor.constraint(equalTo: urgencyIcon.leadingAnchor, constant: -10),
