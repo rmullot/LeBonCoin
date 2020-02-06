@@ -30,8 +30,12 @@ final class AdvertisementsListViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
         setup()
+        // Do any additional setup after loading the view.
+        viewModel.refreshAdvertisementList { [weak self] in
+            guard let strongSelf = self else { return }
+            strongSelf.tableView.reloadData()
+        }
     }
     
     init(viewModel: AdvertisementsViewModelProtocol) {

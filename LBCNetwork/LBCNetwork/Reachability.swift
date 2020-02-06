@@ -27,7 +27,6 @@ POSSIBILITY OF SUCH DAMAGE.
 
 import SystemConfiguration
 import Foundation
-import LBCCoreData
 
 public enum ReachabilityError: Error {
     case failedToCreateWithAddress(sockaddr, Int32)
@@ -315,7 +314,7 @@ extension SCNetworkReachabilityFlags {
         return contains(.connectionOnDemand)
     }
     var isConnectionOnTrafficOrDemandFlagSet: Bool {
-        return intersection([.connectionOnTraffic, .connectionOnDemand]).isNotEmpty
+        return !intersection([.connectionOnTraffic, .connectionOnDemand]).isEmpty
     }
     var isTransientConnectionFlagSet: Bool {
         return contains(.transientConnection)

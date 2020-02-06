@@ -17,6 +17,7 @@
 		7A1039B123EA0E4B00A1A25F /* AdvertisementCoreData+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A1039AB23EA0E4B00A1A25F /* AdvertisementCoreData+CoreDataClass.swift */; };
 		7A1039B223EA0E4B00A1A25F /* CategoryCoreData+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A1039AA23EA0E4B00A1A25F /* CategoryCoreData+CoreDataClass.swift */; };
 		7A1039B323EA0E4B00A1A25F /* CategoryCoreData+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A1039AC23EA0E4B00A1A25F /* CategoryCoreData+CoreDataProperties.swift */; };
+		7A2D930A23EC7463008DFE51 /* test_Romain_MULLOT.xcdatamodeld in Resources */ = {isa = PBXBuildFile; fileRef = 7A1039A223E9F2C400A1A25F /* test_Romain_MULLOT.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -151,6 +152,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7A2D930A23EC7463008DFE51 /* test_Romain_MULLOT.xcdatamodeld in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

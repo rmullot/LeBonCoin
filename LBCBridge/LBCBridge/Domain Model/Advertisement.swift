@@ -11,18 +11,20 @@ import LBCCoreData
 
 final public class Advertisement {
     
-    let idAdvertisement: Int
-    let idCategory: Int
-    let title: String
-    let description: String
-    let price: Float
-    let creationDate: Date
-    let imageUrls: [String: String]
-    let isUrgent: Bool
+    public let idAdvertisement: Int
+    public let categoryName: String
+    public let idCategory: Int
+    public let title: String
+    public let description: String
+    public let price: Float
+    public let creationDate: Date
+    public let imageUrls: [String: String]
+    public let isUrgent: Bool
     
     
-    init(idAdvertisement: Int = 0, idCategory: Int = 0, title: String = "", description: String = "", price: Float = 0, creationDate: Date = Date(), imageUrls: [String: String], isUrgent: Bool = false) {
+    init(idAdvertisement: Int = 0, categoryName: String = "", idCategory: Int = 0, title: String = "", description: String = "", price: Float = 0, creationDate: Date = Date(), imageUrls: [String: String], isUrgent: Bool = false) {
         self.idAdvertisement = idAdvertisement
+        self.categoryName = categoryName
         self.idCategory = idCategory
         self.title = title
         self.description = description
@@ -35,6 +37,7 @@ final public class Advertisement {
     init(advertisement: AdvertisementCoreData) {
         idAdvertisement = Int(advertisement.idAdvertisement)
         idCategory = Int(advertisement.category.idCategory)
+        categoryName = advertisement.category.name
         title = advertisement.title
         description = advertisement.description
         price = advertisement.price

@@ -9,7 +9,7 @@
 import Foundation
 
 public protocol APIAdvertisementsProtocol: AnyObject {
-    func getAdvertisements(completionHandler: @escaping (Result<[AdvertisementJSON]>) -> Void)
+    func getAdvertisements(completionHandler: @escaping (Result<[AdvertisementJSON], Swift.Error>) -> Void)
 }
 
 public extension APIService {
@@ -18,7 +18,7 @@ public extension APIService {
         case urlAdvertisements = "listing.json"
     }
     
-    func getAdvertisements(completionHandler: @escaping (Result<[AdvertisementJSON]>) -> Void) {
+    func getAdvertisements(completionHandler: @escaping (Result<[AdvertisementJSON], Swift.Error>) -> Void) {
         let url = "\(uri)\(LBCKeys.urlAdvertisements.rawValue)"
         getDataWith(urlString: url, type: .advertisements, completion: { (result) in
             switch result {
@@ -27,17 +27,17 @@ public extension APIService {
                     switch result {
                     case .success(let advertisements):
                         guard let advertisements = advertisements  else {
-                            completionHandler(.error(String(format: WebServiceErrorMessage.badObjectType.rawValue, String(describing: [AdvertisementJSON].self))))
+                            completionHandler(.failure(WebServiceErrorMessage.badObjectType))
                             return
                         }
                         completionHandler(.success(advertisements))
                     case .failure(_, let message):
-                        completionHandler(.error(message))
+                        completionHandler(.failure(WebServiceErrorMessage.customMessage(message)))
                     }
                 })
                 
-            case .error(let message):
-                completionHandler(.error(message))
+            case .failure(let message):
+                completionHandler(.failure(message))
             }
         })
     }

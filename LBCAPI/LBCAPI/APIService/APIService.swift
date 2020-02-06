@@ -12,6 +12,14 @@ public protocol APIServiceProtocol: APIAdvertisementsProtocol, APICategoriesProt
     func cancelRequests()
 }
 
+public enum WebServiceErrorMessage: Swift.Error {
+       case noNetwork
+       case invalidURL
+       case unknownError
+       case badObjectType
+       case customMessage(String?)
+   }
+
 public final class APIService: APIServiceProtocol {
     
     // MARK: Attributes
@@ -19,13 +27,6 @@ public final class APIService: APIServiceProtocol {
     internal enum TypeWebService {
         case advertisements
         case categories
-    }
-    
-    internal enum WebServiceErrorMessage: String {
-        case noNetwork = "No network available"
-        case invalidURL = "Invalid URL, we can't update your feed"
-        case unknownError = "Error from network not identified"
-        case badObjectType = "Returned object is not %@ type"
     }
     
     internal let uri = "https://raw.githubusercontent.com/leboncoin/paperclip/master/"
@@ -65,9 +66,9 @@ public final class APIService: APIServiceProtocol {
 
 internal extension APIService {
     
-    func getDataWith(urlString: String, type: TypeWebService, completion: @escaping (Result<Data>) -> Void) {
-        guard onlineMode != .offline else { return completion(.error(WebServiceErrorMessage.noNetwork.rawValue)) }
-        guard let url = URL(string: urlString) else { return completion(.error(WebServiceErrorMessage.invalidURL.rawValue)) }
+    func getDataWith(urlString: String, type: TypeWebService, completion: @escaping (Result<Data, WebServiceErrorMessage>) -> Void) {
+        guard onlineMode != .offline else { return completion(.failure(WebServiceErrorMessage.noNetwork)) }
+        guard let url = URL(string: urlString) else { return completion(.failure(WebServiceErrorMessage.invalidURL)) }
         var request = URLRequest(url: url)
         switch type {
         case .advertisements, .categories:
@@ -78,8 +79,8 @@ internal extension APIService {
         URLSession.shared.dataTask(with: request) { (data, _, error) in
             DispatchQueue.main.async {
                 NetworkActivityService.sharedInstance.requestFinished()
-                guard error == nil else { return completion(.error(error!.localizedDescription)) }
-                guard let data = data else { return completion(.error(error?.localizedDescription ?? WebServiceErrorMessage.unknownError.rawValue)) }
+                guard error == nil else { return completion(.failure(.customMessage(error?.localizedDescription))) }
+                guard let data = data else { return completion(.failure(.unknownError)) }
                 return completion(.success(data))
             }
         }.resume()
