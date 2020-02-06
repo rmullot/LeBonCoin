@@ -18,6 +18,14 @@
 		7A10397F23E98BB900A1A25F /* FilterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A10397E23E98BB900A1A25F /* FilterViewModel.swift */; };
 		7A10398323E98D6000A1A25F /* AdvertisementDescriptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A10398223E98D6000A1A25F /* AdvertisementDescriptionViewController.swift */; };
 		7A10398523E98D6E00A1A25F /* AdvertisementDescriptionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A10398423E98D6E00A1A25F /* AdvertisementDescriptionViewModel.swift */; };
+		7A2D931A23EC87CE008DFE51 /* LBCBridge.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A2D931323EC87CE008DFE51 /* LBCBridge.framework */; };
+		7A2D931B23EC87CE008DFE51 /* LBCBridge.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 7A2D931323EC87CE008DFE51 /* LBCBridge.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		7A2D931C23EC87CE008DFE51 /* LBCCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A2D931423EC87CE008DFE51 /* LBCCore.framework */; };
+		7A2D931D23EC87CE008DFE51 /* LBCCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 7A2D931423EC87CE008DFE51 /* LBCCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		7A2D931E23EC87CE008DFE51 /* LBCCoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A2D931523EC87CE008DFE51 /* LBCCoreData.framework */; };
+		7A2D931F23EC87CE008DFE51 /* LBCCoreData.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 7A2D931523EC87CE008DFE51 /* LBCCoreData.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		7A2D932223EC87CE008DFE51 /* LBCUIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A2D931723EC87CE008DFE51 /* LBCUIKit.framework */; };
+		7A2D932323EC87CE008DFE51 /* LBCUIKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 7A2D931723EC87CE008DFE51 /* LBCUIKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		7A57291F23E5D5BB00085478 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A57291E23E5D5BB00085478 /* AppDelegate.swift */; };
 		7A57292323E5D5BB00085478 /* AdvertisementsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A57292223E5D5BB00085478 /* AdvertisementsListViewController.swift */; };
 		7A57292B23E5D5BD00085478 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7A57292A23E5D5BD00085478 /* Assets.xcassets */; };
@@ -43,6 +51,23 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		7A2D932423EC87CE008DFE51 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				7A2D931D23EC87CE008DFE51 /* LBCCore.framework in Embed Frameworks */,
+				7A2D932323EC87CE008DFE51 /* LBCUIKit.framework in Embed Frameworks */,
+				7A2D931F23EC87CE008DFE51 /* LBCCoreData.framework in Embed Frameworks */,
+				7A2D931B23EC87CE008DFE51 /* LBCBridge.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		7A10396B23E8A55B00A1A25F /* AdvertisementsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvertisementsViewModel.swift; sourceTree = "<group>"; };
 		7A10396D23E8AC2E00A1A25F /* AdvertisementCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvertisementCell.swift; sourceTree = "<group>"; };
@@ -55,6 +80,12 @@
 		7A10397E23E98BB900A1A25F /* FilterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterViewModel.swift; sourceTree = "<group>"; };
 		7A10398223E98D6000A1A25F /* AdvertisementDescriptionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvertisementDescriptionViewController.swift; sourceTree = "<group>"; };
 		7A10398423E98D6E00A1A25F /* AdvertisementDescriptionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvertisementDescriptionViewModel.swift; sourceTree = "<group>"; };
+		7A2D931223EC87CE008DFE51 /* LBCAPI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = LBCAPI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7A2D931323EC87CE008DFE51 /* LBCBridge.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = LBCBridge.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7A2D931423EC87CE008DFE51 /* LBCCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = LBCCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7A2D931523EC87CE008DFE51 /* LBCCoreData.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = LBCCoreData.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7A2D931623EC87CE008DFE51 /* LBCNetwork.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = LBCNetwork.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7A2D931723EC87CE008DFE51 /* LBCUIKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = LBCUIKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A57291B23E5D5BB00085478 /* test_Romain_MULLOT.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = test_Romain_MULLOT.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A57291E23E5D5BB00085478 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7A57292223E5D5BB00085478 /* AdvertisementsListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvertisementsListViewController.swift; sourceTree = "<group>"; };
@@ -74,6 +105,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7A2D931C23EC87CE008DFE51 /* LBCCore.framework in Frameworks */,
+				7A2D932223EC87CE008DFE51 /* LBCUIKit.framework in Frameworks */,
+				7A2D931E23EC87CE008DFE51 /* LBCCoreData.framework in Frameworks */,
+				7A2D931A23EC87CE008DFE51 /* LBCBridge.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -125,6 +160,19 @@
 			path = AdvertisementDescription;
 			sourceTree = "<group>";
 		};
+		7A2D931123EC87CE008DFE51 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7A2D931223EC87CE008DFE51 /* LBCAPI.framework */,
+				7A2D931323EC87CE008DFE51 /* LBCBridge.framework */,
+				7A2D931423EC87CE008DFE51 /* LBCCore.framework */,
+				7A2D931523EC87CE008DFE51 /* LBCCoreData.framework */,
+				7A2D931623EC87CE008DFE51 /* LBCNetwork.framework */,
+				7A2D931723EC87CE008DFE51 /* LBCUIKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		7A57291223E5D5BB00085478 = {
 			isa = PBXGroup;
 			children = (
@@ -133,6 +181,7 @@
 				7A57293723E5D5BE00085478 /* test_Romain_MULLOTTests */,
 				7A57294223E5D5BE00085478 /* test_Romain_MULLOTUITests */,
 				7A57291C23E5D5BB00085478 /* Products */,
+				7A2D931123EC87CE008DFE51 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -189,6 +238,7 @@
 				7A57291723E5D5BB00085478 /* Sources */,
 				7A57291823E5D5BB00085478 /* Frameworks */,
 				7A57291923E5D5BB00085478 /* Resources */,
+				7A2D932423EC87CE008DFE51 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);

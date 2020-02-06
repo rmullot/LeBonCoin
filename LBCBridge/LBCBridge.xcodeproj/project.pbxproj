@@ -12,7 +12,23 @@
 		7A2D930523EB831E008DFE51 /* CategoryService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A2D930423EB831E008DFE51 /* CategoryService.swift */; };
 		7A2D930623EBA3D7008DFE51 /* Advertisement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A2D92FF23EB82EC008DFE51 /* Advertisement.swift */; };
 		7A2D930723EBA3D9008DFE51 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A2D930023EB82EC008DFE51 /* Category.swift */; };
+		7A2D932723EC8875008DFE51 /* LBCCoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A2D932623EC8875008DFE51 /* LBCCoreData.framework */; };
+		7A2D932823EC8875008DFE51 /* LBCCoreData.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 7A2D932623EC8875008DFE51 /* LBCCoreData.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		7A2D932923EC8875008DFE51 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				7A2D932823EC8875008DFE51 /* LBCCoreData.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		7A1039C323EB0F5000A1A25F /* LBCBridge.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = LBCBridge.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -22,6 +38,7 @@
 		7A2D930023EB82EC008DFE51 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		7A2D930223EB8311008DFE51 /* AdvertisementService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvertisementService.swift; sourceTree = "<group>"; };
 		7A2D930423EB831E008DFE51 /* CategoryService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryService.swift; sourceTree = "<group>"; };
+		7A2D932623EC8875008DFE51 /* LBCCoreData.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = LBCCoreData.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,6 +46,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7A2D932723EC8875008DFE51 /* LBCCoreData.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -40,6 +58,7 @@
 			children = (
 				7A1039C523EB0F5000A1A25F /* LBCBridge */,
 				7A1039C423EB0F5000A1A25F /* Products */,
+				7A2D932523EC8875008DFE51 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -72,6 +91,14 @@
 			path = "Domain Model";
 			sourceTree = "<group>";
 		};
+		7A2D932523EC8875008DFE51 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7A2D932623EC8875008DFE51 /* LBCCoreData.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -94,6 +121,7 @@
 				7A1039BF23EB0F5000A1A25F /* Sources */,
 				7A1039C023EB0F5000A1A25F /* Frameworks */,
 				7A1039C123EB0F5000A1A25F /* Resources */,
+				7A2D932923EC8875008DFE51 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -301,6 +329,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = leboncoin.LBCBridge;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -326,6 +355,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = leboncoin.LBCBridge;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

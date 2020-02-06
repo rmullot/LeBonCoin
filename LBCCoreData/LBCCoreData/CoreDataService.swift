@@ -37,8 +37,19 @@ public final class CoreDataService: CoreDataServiceProtocol {
          application to it. This property is optional since there are legitimate
          error conditions that could cause the creation of the store to fail.
          */
-     
-        let container = NSPersistentContainer(name: "test_Romain_MULLOT")
+        //...
+        NSPersistentContainer.defaultDirectoryURL()
+        let momdName = "LBCCoreData"
+        
+        guard let modelURL = Bundle(for: type(of: self)).url(forResource: momdName, withExtension:"momd") else {
+                fatalError("Error loading model from bundle")
+        }
+
+        guard let mom = NSManagedObjectModel(contentsOf: modelURL) else {
+            fatalError("Error initializing mom from: \(modelURL)")
+        }
+        
+        let container = NSPersistentContainer(name: momdName, managedObjectModel: mom)
         container.loadPersistentStores(completionHandler: { (_, error) in
             if let error = error as NSError? {
                 /*
