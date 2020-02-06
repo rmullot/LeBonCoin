@@ -99,15 +99,14 @@ public final class CoreDataService: CoreDataServiceProtocol {
     public func clearData<T: NSManagedObject>(_ type: T.Type) {
         do {
             let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: String(describing: type))
-            
-            let batchDeleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
             do {
-                try backgroundManagedObjectContext.execute(batchDeleteRequest)
-                saveContext()
+              let objects  = try backgroundManagedObjectContext.fetch(fetchRequest) as? [NSManagedObject]
+              objects?.forEach { backgroundManagedObjectContext.delete($0) }
+              saveContext()
             } catch let error {
-                print("ERROR DELETING : \(error)")
+              print("ERROR DELETING : \(error)")
             }
-        }
+          }
     }
     
     public func get<T: NSManagedObject>(value: T.Type, isMaincontext: Bool, predicate: NSPredicate? = nil, sortParameters: [[String: Bool]]? = nil, completionHandler: CoreDataCallback<T>) {
@@ -117,7 +116,7 @@ public final class CoreDataService: CoreDataServiceProtocol {
             let fetchResults = try context.fetch(request) as? [T]
             completionHandler(.success(fetchResults))
         } catch let error {
-            print("ERROR: no \(T.self) in cache  \(error)")
+            print("ERROR: no \(T.self) in cache \(error)")
             completionHandler(.failure(.genericError("\(error)")))
         }
     }
