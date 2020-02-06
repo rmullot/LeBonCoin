@@ -16,6 +16,7 @@
 		7A218C4D23ECB9D7007AC8BF /* LBCCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 7A218C4A23ECB9D7007AC8BF /* LBCCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		7A218C4E23ECB9D7007AC8BF /* LBCNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A218C4B23ECB9D7007AC8BF /* LBCNetwork.framework */; };
 		7A218C4F23ECB9D7007AC8BF /* LBCNetwork.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 7A218C4B23ECB9D7007AC8BF /* LBCNetwork.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		7A218C5223ECC249007AC8BF /* CALayer+Shadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A218C5123ECC249007AC8BF /* CALayer+Shadow.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -43,6 +44,7 @@
 		7A218C4723ECB6BC007AC8BF /* UIImageView+Cache.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImageView+Cache.swift"; sourceTree = "<group>"; };
 		7A218C4A23ECB9D7007AC8BF /* LBCCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = LBCCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A218C4B23ECB9D7007AC8BF /* LBCNetwork.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = LBCNetwork.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7A218C5123ECC249007AC8BF /* CALayer+Shadow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CALayer+Shadow.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +94,7 @@
 				7A218C4723ECB6BC007AC8BF /* UIImageView+Cache.swift */,
 				7A10396523E87EA700A1A25F /* UIView+LBCUIKit.swift */,
 				7A10396823E88A3E00A1A25F /* UITableView+LBCUIKit.swift */,
+				7A218C5123ECC249007AC8BF /* CALayer+Shadow.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -188,6 +191,7 @@
 			files = (
 				7A10396423E878AA00A1A25F /* LBCScrollView.swift in Sources */,
 				7A218C4823ECB6BC007AC8BF /* UIImageView+Cache.swift in Sources */,
+				7A218C5223ECC249007AC8BF /* CALayer+Shadow.swift in Sources */,
 				7A10396623E87EA700A1A25F /* UIView+LBCUIKit.swift in Sources */,
 				7A10396923E88A3E00A1A25F /* UITableView+LBCUIKit.swift in Sources */,
 			);

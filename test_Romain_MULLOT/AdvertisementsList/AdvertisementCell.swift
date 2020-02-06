@@ -16,6 +16,8 @@ final class AdvertisementCell: UITableViewCell {
         photoView.backgroundColor = .white
         photoView.accessibilityIdentifier = "AdvertisementCell_photoView"
         photoView.isOpaque = true
+        photoView.contentMode = .scaleAspectFit
+        photoView.layer.applySketchShadow()
         return photoView
     }()
     
@@ -100,6 +102,7 @@ private extension AdvertisementCell {
         translatesAutoresizingMaskIntoConstraints = true
         setupInterface()
         setupConstraints()
+      
     }
     
     func setupInterface() {
