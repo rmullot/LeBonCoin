@@ -12,13 +12,13 @@ import LBCCore
 import CoreData
 
 public protocol AdvertisementsCoreDataServiceProtocol: AnyObject {
-    func savesAdvertisementsJSON(_ advertisements: [AdvertisementJSON])
+    func saveAdvertisements(_ advertisements: [AdvertisementJSON])
 }
 
 
 extension CoreDataService: AdvertisementsCoreDataServiceProtocol  {
     
-    public func savesAdvertisementsJSON(_ advertisements: [AdvertisementJSON]) {
+    public func saveAdvertisements(_ advertisements: [AdvertisementJSON]) {
         var errorMessage = ""
         
         advertisements.forEach {

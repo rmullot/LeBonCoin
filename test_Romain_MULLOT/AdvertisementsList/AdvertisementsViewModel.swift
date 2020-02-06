@@ -7,6 +7,8 @@
 //
 
 import Foundation
+import LBCBridge
+import LBCCore
 
 protocol AdvertisementsViewModelProtocol: AnyObject {
     var advertisementsCount: Int { get }
@@ -16,6 +18,8 @@ protocol AdvertisementsViewModelProtocol: AnyObject {
     func getCategory(index: Int) -> String
     func didTapFilter()
     func didTapAdvertisement(index: Int)
+    func refreshAdvertisementList(completionHandler: @escaping ()->())
+    init(advertisementService: AdvertisementService)
     var delegate: AdvertisementsViewModelDelegate? { get set }
 }
 
@@ -27,25 +31,15 @@ protocol AdvertisementsViewModelDelegate: AnyObject {
 final class AdvertisementsViewModel: AdvertisementsViewModelProtocol {
     
     weak var delegate: AdvertisementsViewModelDelegate?
+    private var advertisements: [Advertisement]?
+    private let advertisementService: AdvertisementService
+    
+    init(advertisementService: AdvertisementService) {
+        self.advertisementService = advertisementService
+    }
     
     var advertisementsCount: Int {
-        return 12
-    }
-    
-    func getIsNotUrgent(index: Int) -> Bool {
-        return false
-    }
-    
-    func getPrice(index: Int) -> String {
-        return "23$"
-    }
-    
-    func getTitle(index: Int) -> String {
-        return "test"
-    }
-    
-    func getCategory(index: Int) -> String {
-        return "category"
+        return advertisements?.count ?? 0
     }
     
     func didTapFilter() {
@@ -53,15 +47,58 @@ final class AdvertisementsViewModel: AdvertisementsViewModelProtocol {
     }
     
     func didTapAdvertisement(index: Int) {
-        //TODO: to replace by the good viewModel
-        guard index > 0, index < 1 else { return }
+        guard advertisements?.isValidIndex(index) ?? false else { return }
         let descriptionViewModel = getAdvertisementDescriptionViewModel(index: index)
         delegate?.didTapAdvertisement(viewModel: descriptionViewModel)
     }
     
+    func refreshAdvertisementList(completionHandler: @escaping ()->()) {
+        CategoryService.sharedInstance.getCategories { [weak self] (result) in
+            guard let strongSelf = self else { return }
+            switch result {
+            case .success(_):
+                strongSelf.advertisementService.getAdvertisements { [weak self] (result) in
+                    guard let strongSelf = self else { return }
+                    switch result {
+                    case .success(let advertisements):
+                        strongSelf.advertisements = advertisements ?? []
+                    default: break
+                    }
+                
+                    completionHandler()
+                }
+            default: completionHandler()
+            }
+        }
+    }
+    
+}
+
+extension AdvertisementsViewModel {
+    
+    func getIsNotUrgent(index: Int) -> Bool {
+        return !(getAdvertisement(index: index)?.isUrgent ?? true)
+    }
+    
+    func getPrice(index: Int) -> String {
+        return getAdvertisement(index: index)?.price.formattedPrice ?? ""
+    }
+    
+    func getTitle(index: Int) -> String {
+        return getAdvertisement(index: index)?.title ?? ""
+    }
+    
+    func getCategory(index: Int) -> String {
+        return getAdvertisement(index: index)?.categoryName ?? ""
+    }
 }
 
 private extension AdvertisementsViewModel {
+    
+    func getAdvertisement(index: Int) -> Advertisement? {
+        guard advertisements?.isValidIndex(index) ?? false, let advertisement = advertisements?[index] else { return nil }
+        return advertisement
+    }
     
     func getAdvertisementDescriptionViewModel(index: Int) -> AdvertisementDescriptionViewModelProtocol {
         return AdvertisementDescriptionViewModel()

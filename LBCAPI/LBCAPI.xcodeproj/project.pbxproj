@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		7A10391423E78D4600A1A25F /* APIService+Categories.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A10391323E78D4600A1A25F /* APIService+Categories.swift */; };
 		7A10391623E78DA500A1A25F /* APIService+Advertisements.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A10391523E78DA500A1A25F /* APIService+Advertisements.swift */; };
+		7A2D933123EC889B008DFE51 /* LBCNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A2D933023EC889B008DFE51 /* LBCNetwork.framework */; };
+		7A2D933223EC889B008DFE51 /* LBCNetwork.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 7A2D933023EC889B008DFE51 /* LBCNetwork.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		7A5729C423E744BB00085478 /* LBCAPI.h in Headers */ = {isa = PBXBuildFile; fileRef = 7A5729C223E744BB00085478 /* LBCAPI.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7A5729CD23E7458300085478 /* AdvertisementJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A5729CA23E7458300085478 /* AdvertisementJSON.swift */; };
 		7A5729CE23E7458300085478 /* ParserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A5729CB23E7458300085478 /* ParserService.swift */; };
@@ -17,9 +19,24 @@
 		7A5729D423E7542800085478 /* ImagesJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A5729D323E7542800085478 /* ImagesJSON.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		7A2D933323EC889B008DFE51 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				7A2D933223EC889B008DFE51 /* LBCNetwork.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		7A10391323E78D4600A1A25F /* APIService+Categories.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "APIService+Categories.swift"; sourceTree = "<group>"; };
 		7A10391523E78DA500A1A25F /* APIService+Advertisements.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "APIService+Advertisements.swift"; sourceTree = "<group>"; };
+		7A2D933023EC889B008DFE51 /* LBCNetwork.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = LBCNetwork.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A5729BF23E744BB00085478 /* LBCAPI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = LBCAPI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A5729C223E744BB00085478 /* LBCAPI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LBCAPI.h; sourceTree = "<group>"; };
 		7A5729C323E744BB00085478 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -35,6 +52,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7A2D933123EC889B008DFE51 /* LBCNetwork.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -51,11 +69,20 @@
 			path = APIService;
 			sourceTree = "<group>";
 		};
+		7A2D932F23EC889B008DFE51 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7A2D933023EC889B008DFE51 /* LBCNetwork.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		7A5729B523E744BB00085478 = {
 			isa = PBXGroup;
 			children = (
 				7A5729C123E744BB00085478 /* LBCAPI */,
 				7A5729C023E744BB00085478 /* Products */,
+				7A2D932F23EC889B008DFE51 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -111,6 +138,7 @@
 				7A5729BB23E744BB00085478 /* Sources */,
 				7A5729BC23E744BB00085478 /* Frameworks */,
 				7A5729BD23E744BB00085478 /* Resources */,
+				7A2D933323EC889B008DFE51 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -321,6 +349,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = leboncoin.LBCAPI;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -346,6 +375,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = leboncoin.LBCAPI;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

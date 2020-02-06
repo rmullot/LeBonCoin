@@ -11,8 +11,8 @@ import LBCCoreData
 
 public final class Category {
     
-    let idCategory: Int
-    let name: String
+    public let idCategory: Int
+    public let name: String
     
     init(idCategory: Int = 0, name: String = "") {
         self.idCategory = idCategory

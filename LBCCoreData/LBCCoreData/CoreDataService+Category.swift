@@ -39,8 +39,7 @@ extension CoreDataService: CategoriesCoreDataServiceProtocol  {
     }
     
     public func getCategory(idCategory: Int) -> CategoryCoreData? {
-        
-        let predicate = NSPredicate(format: "%@ == %@", argumentArray: [ \CategoryCoreData.idCategory, idCategory])
+        let predicate = NSPredicate(format: "%K = %d", #keyPath(CategoryCoreData.idCategory),  idCategory)
         return get(value: CategoryCoreData.self, isMaincontext: false, predicate: predicate, sortParameters: nil)
     }
 }
@@ -52,7 +51,7 @@ private extension CoreDataService {
         
         //check if object exists already or create new one
         
-        let predicate = NSPredicate(format: "%@ == %@", argumentArray: [ \CategoryCoreData.idCategory, category.idCategory])
+        let predicate = NSPredicate(format: "%K = %d", #keyPath(CategoryCoreData.idCategory),  category.idCategory)
         
         get(value: CategoryCoreData.self, isMaincontext: false, predicate: predicate, sortParameters: nil) { (result) in
             switch result {

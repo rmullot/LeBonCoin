@@ -37,7 +37,19 @@ public final class CoreDataService: CoreDataServiceProtocol {
          application to it. This property is optional since there are legitimate
          error conditions that could cause the creation of the store to fail.
          */
-        let container = NSPersistentContainer(name: "test_Romain_MULLOT")
+        //...
+        NSPersistentContainer.defaultDirectoryURL()
+        let momdName = "LBCCoreData"
+        
+        guard let modelURL = Bundle(for: type(of: self)).url(forResource: momdName, withExtension:"momd") else {
+                fatalError("Error loading model from bundle")
+        }
+
+        guard let mom = NSManagedObjectModel(contentsOf: modelURL) else {
+            fatalError("Error initializing mom from: \(modelURL)")
+        }
+        
+        let container = NSPersistentContainer(name: momdName, managedObjectModel: mom)
         container.loadPersistentStores(completionHandler: { (_, error) in
             if let error = error as NSError? {
                 /*
@@ -87,15 +99,14 @@ public final class CoreDataService: CoreDataServiceProtocol {
     public func clearData<T: NSManagedObject>(_ type: T.Type) {
         do {
             let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: String(describing: type))
-            
-            let batchDeleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
             do {
-                try backgroundManagedObjectContext.execute(batchDeleteRequest)
-                saveContext()
+              let objects  = try backgroundManagedObjectContext.fetch(fetchRequest) as? [NSManagedObject]
+              objects?.forEach { backgroundManagedObjectContext.delete($0) }
+              saveContext()
             } catch let error {
-                print("ERROR DELETING : \(error)")
+              print("ERROR DELETING : \(error)")
             }
-        }
+          }
     }
     
     public func get<T: NSManagedObject>(value: T.Type, isMaincontext: Bool, predicate: NSPredicate? = nil, sortParameters: [[String: Bool]]? = nil, completionHandler: CoreDataCallback<T>) {
@@ -105,7 +116,7 @@ public final class CoreDataService: CoreDataServiceProtocol {
             let fetchResults = try context.fetch(request) as? [T]
             completionHandler(.success(fetchResults))
         } catch let error {
-            print("ERROR: no \(T.self) in cache  \(error)")
+            print("ERROR: no \(T.self) in cache \(error)")
             completionHandler(.failure(.genericError("\(error)")))
         }
     }

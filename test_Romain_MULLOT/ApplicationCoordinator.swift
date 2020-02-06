@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import LBCBridge
 
 final class ApplicationCoordinator: Coordinator {
     
@@ -21,7 +22,7 @@ final class ApplicationCoordinator: Coordinator {
     }
     
     func start() {
-        let viewModel = AdvertisementsViewModel()
+        let viewModel = AdvertisementsViewModel(advertisementService: AdvertisementService.sharedInstance)
         viewModel.delegate = self
         let advertisementsListViewController = AdvertisementsListViewController(viewModel: viewModel)
         rootViewController.pushViewController(advertisementsListViewController, animated: false)

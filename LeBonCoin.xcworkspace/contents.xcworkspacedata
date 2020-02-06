@@ -19,4 +19,7 @@
    <FileRef
       location = "group:LBCBridge/LBCBridge.xcodeproj">
    </FileRef>
+   <FileRef
+      location = "group:LBCBridge/../LBCUIKit/LBCUIKit.xcodeproj">
+   </FileRef>
 </Workspace>
