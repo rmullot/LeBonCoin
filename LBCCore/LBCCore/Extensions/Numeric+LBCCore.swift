@@ -10,6 +10,6 @@ import Foundation
 
 public extension Numeric {
     var formattedPrice: String {
-        return FormatterService.sharedInstance.numberFormatterWith(key: .price).string(from: NSNumber(nonretainedObject: self)) ?? ""
+        return FormatterService.sharedInstance.numberFormatterWith(key: .price).string(for: self) ?? ""
     }
 }

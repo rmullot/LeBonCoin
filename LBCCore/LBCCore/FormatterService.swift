@@ -85,6 +85,8 @@ private extension FormatterService {
         case .price:
             let formatter = NumberFormatter()
             formatter.numberStyle = .currency
+            formatter.minimumFractionDigits = 0
+            formatter.maximumFractionDigits = 2
             formatter.currencyCode = "EUR"
             formatter.currencySymbol = "€"
             return formatter
