@@ -9,7 +9,7 @@
 import Foundation
 import LBCCoreData
 
-final class Category {
+public final class Category {
     
     let idCategory: Int
     let name: String

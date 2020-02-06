@@ -15,6 +15,7 @@
 		7A10394B23E8415100A1A25F /* FormatterService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A10394A23E8415100A1A25F /* FormatterService.swift */; };
 		7A10394D23E8491300A1A25F /* Numeric+LBCCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A10394C23E8491300A1A25F /* Numeric+LBCCore.swift */; };
 		7A1039B823EAE9F400A1A25F /* InjectionMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A1039B723EAE9F400A1A25F /* InjectionMap.swift */; };
+		7A2D930923EC4EDD008DFE51 /* Collection+LBCCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A2D930823EC4EDD008DFE51 /* Collection+LBCCore.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,6 +40,7 @@
 		7A10394A23E8415100A1A25F /* FormatterService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormatterService.swift; sourceTree = "<group>"; };
 		7A10394C23E8491300A1A25F /* Numeric+LBCCore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Numeric+LBCCore.swift"; sourceTree = "<group>"; };
 		7A1039B723EAE9F400A1A25F /* InjectionMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InjectionMap.swift; sourceTree = "<group>"; };
+		7A2D930823EC4EDD008DFE51 /* Collection+LBCCore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Collection+LBCCore.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,7 +85,6 @@
 			children = (
 				7A1039B623EAE83E00A1A25F /* Extensions */,
 				7A10394A23E8415100A1A25F /* FormatterService.swift */,
-				7A10393B23E83E9900A1A25F /* String+LBCCore.swift */,
 				7A10392423E8223B00A1A25F /* LBCCore.h */,
 				7A10392523E8223B00A1A25F /* Info.plist */,
 				7A1039B723EAE9F400A1A25F /* InjectionMap.swift */,
@@ -105,6 +106,8 @@
 			children = (
 				7A10394C23E8491300A1A25F /* Numeric+LBCCore.swift */,
 				7A10393C23E83E9900A1A25F /* Date+LBCCore.swift */,
+				7A10393B23E83E9900A1A25F /* String+LBCCore.swift */,
+				7A2D930823EC4EDD008DFE51 /* Collection+LBCCore.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -219,6 +222,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7A2D930923EC4EDD008DFE51 /* Collection+LBCCore.swift in Sources */,
 				7A10394B23E8415100A1A25F /* FormatterService.swift in Sources */,
 				7A10394D23E8491300A1A25F /* Numeric+LBCCore.swift in Sources */,
 				7A1039B823EAE9F400A1A25F /* InjectionMap.swift in Sources */,

@@ -12,6 +12,7 @@ import CoreData
 
 public enum CoreDataError: Error {
     case duplicateObject(String)
+    case noObject(String)
     case genericError(String)
 }
 
@@ -106,6 +107,20 @@ public final class CoreDataService: CoreDataServiceProtocol {
         } catch let error {
             print("ERROR: no \(T.self) in cache  \(error)")
             completionHandler(.failure(.genericError("\(error)")))
+        }
+    }
+    
+    public func get<T: NSManagedObject>(value: T.Type, isMaincontext: Bool, predicate: NSPredicate? = nil, sortParameters: [[String: Bool]]? = nil) -> T? {
+        do {
+            let context = isMaincontext ? mainManagedObjectContext : backgroundManagedObjectContext
+            let request = fetchRequest(type: T.self, context: context, predicate: predicate, sortedBy: sortParameters)
+            if let fetchResults = try context.fetch(request) as? [T] {
+                return fetchResults.isNotEmpty ? fetchResults[0] : nil
+            }
+            return nil
+        } catch let error {
+            print("ERROR: no \(T.self) in cache  \(error)")
+            return nil
         }
     }
     
