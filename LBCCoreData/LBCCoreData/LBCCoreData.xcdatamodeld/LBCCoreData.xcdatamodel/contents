@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="15702" systemVersion="19D76" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="AdvertisementCoreData" representedClassName="AdvertisementCoreData" syncable="YES">
-        <attribute name="creationDate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
-        <attribute name="descriptionAdvert" optional="YES" attributeType="String"/>
-        <attribute name="idAdvertisement" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
-        <attribute name="isUrgent" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
-        <attribute name="price" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES"/>
-        <attribute name="title" optional="YES" attributeType="String"/>
-        <relationship name="category" maxCount="1" deletionRule="Deny" destinationEntity="CategoryCoreData" inverseName="advertisements" inverseEntity="CategoryCoreData"/>
+        <attribute name="creationDate" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="descriptionAdvert" attributeType="String"/>
+        <attribute name="idAdvertisement" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="isUrgent" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="price" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="title" attributeType="String"/>
+        <relationship name="category" maxCount="1" deletionRule="Nullify" destinationEntity="CategoryCoreData" inverseName="advertisements" inverseEntity="CategoryCoreData"/>
         <relationship name="images" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="ImageCoreData" inverseName="advertisement" inverseEntity="ImageCoreData"/>
     </entity>
     <entity name="CategoryCoreData" representedClassName="CategoryCoreData" syncable="YES">
-        <attribute name="idCategory" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
-        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="idCategory" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="name" attributeType="String"/>
         <relationship name="advertisements" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="AdvertisementCoreData" inverseName="category" inverseEntity="AdvertisementCoreData"/>
     </entity>
     <entity name="ImageCoreData" representedClassName="ImageCoreData" syncable="YES">
@@ -22,7 +22,7 @@
     </entity>
     <elements>
         <element name="AdvertisementCoreData" positionX="-244.4296875" positionY="-179.77734375" width="128" height="163"/>
+        <element name="CategoryCoreData" positionX="14.6328125" positionY="0.046875" width="128" height="88"/>
         <element name="ImageCoreData" positionX="-260.45703125" positionY="63.76953125" width="128" height="88"/>
-        <element name="CategoryCoreData" positionX="-36" positionY="9" width="128" height="88"/>
     </elements>
 </model>

@@ -43,7 +43,7 @@ public final class CategoryService: CategoryServiceProtocol {
 
 private extension CategoryService {
     
-    func getCategoriesFromCoreData(sortParameters: [[String: Bool]], completionHandler: @escaping (Result<[Category]?, Error>) -> Void) {
+    func getCategoriesFromCoreData(sortParameters: [[String: Bool]], completionHandler: (Result<[Category]?, Error>) -> Void) {
         CoreDataService.sharedInstance.get(value: CategoryCoreData.self, isMaincontext: true, predicate: nil, sortParameters: sortParameters) { (result) in
             switch result {
             case .success(let results):

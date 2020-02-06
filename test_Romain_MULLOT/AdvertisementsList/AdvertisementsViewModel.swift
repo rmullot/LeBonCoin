@@ -53,13 +53,22 @@ final class AdvertisementsViewModel: AdvertisementsViewModelProtocol {
     }
     
     func refreshAdvertisementList(completionHandler: @escaping ()->()) {
-        advertisementService.getAdvertisements { (result) in
+        CategoryService.sharedInstance.getCategories { [weak self] (result) in
+            guard let strongSelf = self else { return }
             switch result {
-            case .success(let advertisements):
-                self.advertisements = advertisements ?? []
-            default: break
+            case .success(_):
+                strongSelf.advertisementService.getAdvertisements { [weak self] (result) in
+                    guard let strongSelf = self else { return }
+                    switch result {
+                    case .success(let advertisements):
+                        strongSelf.advertisements = advertisements ?? []
+                    default: break
+                    }
+                
+                    completionHandler()
+                }
+            default: completionHandler()
             }
-            completionHandler()
         }
     }
     
