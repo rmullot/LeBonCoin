@@ -9,6 +9,11 @@
 import Foundation
 import LBCCoreData
 
+public enum AdvertisementImageSize: String {
+    case thumb
+    case small
+}
+
 final public class Advertisement {
     
     public let idAdvertisement: Int

@@ -11,7 +11,28 @@
 		7A10396423E878AA00A1A25F /* LBCScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A10396323E878AA00A1A25F /* LBCScrollView.swift */; };
 		7A10396623E87EA700A1A25F /* UIView+LBCUIKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A10396523E87EA700A1A25F /* UIView+LBCUIKit.swift */; };
 		7A10396923E88A3E00A1A25F /* UITableView+LBCUIKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A10396823E88A3E00A1A25F /* UITableView+LBCUIKit.swift */; };
+		7A218C4823ECB6BC007AC8BF /* UIImageView+Cache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A218C4723ECB6BC007AC8BF /* UIImageView+Cache.swift */; };
+		7A218C4C23ECB9D7007AC8BF /* LBCCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A218C4A23ECB9D7007AC8BF /* LBCCore.framework */; };
+		7A218C4D23ECB9D7007AC8BF /* LBCCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 7A218C4A23ECB9D7007AC8BF /* LBCCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		7A218C4E23ECB9D7007AC8BF /* LBCNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A218C4B23ECB9D7007AC8BF /* LBCNetwork.framework */; };
+		7A218C4F23ECB9D7007AC8BF /* LBCNetwork.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 7A218C4B23ECB9D7007AC8BF /* LBCNetwork.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		7A218C5223ECC249007AC8BF /* CALayer+Shadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A218C5123ECC249007AC8BF /* CALayer+Shadow.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		7A218C5023ECB9D7007AC8BF /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				7A218C4D23ECB9D7007AC8BF /* LBCCore.framework in Embed Frameworks */,
+				7A218C4F23ECB9D7007AC8BF /* LBCNetwork.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		7A10395823E877DE00A1A25F /* LBCUIKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = LBCUIKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -20,6 +41,10 @@
 		7A10396323E878AA00A1A25F /* LBCScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LBCScrollView.swift; sourceTree = "<group>"; };
 		7A10396523E87EA700A1A25F /* UIView+LBCUIKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+LBCUIKit.swift"; sourceTree = "<group>"; };
 		7A10396823E88A3E00A1A25F /* UITableView+LBCUIKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+LBCUIKit.swift"; sourceTree = "<group>"; };
+		7A218C4723ECB6BC007AC8BF /* UIImageView+Cache.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImageView+Cache.swift"; sourceTree = "<group>"; };
+		7A218C4A23ECB9D7007AC8BF /* LBCCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = LBCCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7A218C4B23ECB9D7007AC8BF /* LBCNetwork.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = LBCNetwork.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7A218C5123ECC249007AC8BF /* CALayer+Shadow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CALayer+Shadow.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -27,6 +52,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7A218C4C23ECB9D7007AC8BF /* LBCCore.framework in Frameworks */,
+				7A218C4E23ECB9D7007AC8BF /* LBCNetwork.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -38,6 +65,7 @@
 			children = (
 				7A10395A23E877DE00A1A25F /* LBCUIKit */,
 				7A10395923E877DE00A1A25F /* Products */,
+				7A218C4923ECB9D7007AC8BF /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -63,10 +91,21 @@
 		7A10396723E88A2000A1A25F /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				7A218C4723ECB6BC007AC8BF /* UIImageView+Cache.swift */,
 				7A10396523E87EA700A1A25F /* UIView+LBCUIKit.swift */,
 				7A10396823E88A3E00A1A25F /* UITableView+LBCUIKit.swift */,
+				7A218C5123ECC249007AC8BF /* CALayer+Shadow.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		7A218C4923ECB9D7007AC8BF /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7A218C4A23ECB9D7007AC8BF /* LBCCore.framework */,
+				7A218C4B23ECB9D7007AC8BF /* LBCNetwork.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -91,6 +130,7 @@
 				7A10395423E877DE00A1A25F /* Sources */,
 				7A10395523E877DE00A1A25F /* Frameworks */,
 				7A10395623E877DE00A1A25F /* Resources */,
+				7A218C5023ECB9D7007AC8BF /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -150,6 +190,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				7A10396423E878AA00A1A25F /* LBCScrollView.swift in Sources */,
+				7A218C4823ECB6BC007AC8BF /* UIImageView+Cache.swift in Sources */,
+				7A218C5223ECC249007AC8BF /* CALayer+Shadow.swift in Sources */,
 				7A10396623E87EA700A1A25F /* UIView+LBCUIKit.swift in Sources */,
 				7A10396923E88A3E00A1A25F /* UITableView+LBCUIKit.swift in Sources */,
 			);

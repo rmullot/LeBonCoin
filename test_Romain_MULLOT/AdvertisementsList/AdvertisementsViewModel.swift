@@ -16,6 +16,7 @@ protocol AdvertisementsViewModelProtocol: AnyObject {
     func getPrice(index: Int) -> String
     func getTitle(index: Int) -> String
     func getCategory(index: Int) -> String
+    func getThumbImage(index: Int) -> String
     func didTapFilter()
     func didTapAdvertisement(index: Int)
     func refreshAdvertisementList(completionHandler: @escaping ()->())
@@ -90,6 +91,10 @@ extension AdvertisementsViewModel {
     
     func getCategory(index: Int) -> String {
         return getAdvertisement(index: index)?.categoryName ?? ""
+    }
+    
+    func getThumbImage(index: Int) -> String {
+        return getAdvertisement(index: index)?.imageUrls[AdvertisementImageSize.thumb.rawValue] ?? ""
     }
 }
 
