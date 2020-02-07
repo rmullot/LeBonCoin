@@ -55,17 +55,19 @@ final class AdvertisementCell: UITableViewCell {
         return urgencyIcon
     }()
     
+    private var currentImageUrl: String = ""
+    
     func config(viewModel: AdvertisementsViewModelProtocol, index: Int) {
         urgencyIcon.isHidden = viewModel.getIsNotUrgent(index: index)
         titleLabel.text = viewModel.getTitle(index: index)
         priceLabel.text = viewModel.getPrice(index: index)
         categoryLabel.text = viewModel.getCategory(index: index)
-        let currentUrl = viewModel.getThumbImage(index: index)
-        photoView.loadImage(urlString: currentUrl, placeHolder: UIImage(named:"placeholder"), completionHandler: { [ weak self] (result) in
+        currentImageUrl = viewModel.getThumbImage(index: index)
+        photoView.loadImage(urlString: currentImageUrl, placeHolder: UIImage(named:"placeholder"), completionHandler: { [ weak self] (result) in
                 guard let strongSelf = self else { return }
                 switch result {
                 case .success(let image, let urlString):
-                    if currentUrl == urlString {
+                    if strongSelf.currentImageUrl == urlString {
                         strongSelf.photoView.image = image
                     } else {
                         strongSelf.photoView.image = UIImage(named:"placeholder")
