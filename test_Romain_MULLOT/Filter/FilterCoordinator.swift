@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import LBCBridge
 
 //TODO: To do the difference between cancel and validate filters
 protocol FilterCoordinatorDelegate: AnyObject {
@@ -26,27 +27,32 @@ final class FilterCoordinator: Coordinator {
     }
     
     func start() {
-        let viewModel = FilterViewModel()
+        let viewModel = FilterViewModel(categoryService: CategoryService.sharedInstance)
         viewModel.delegate = self
         let filterViewController = FilterViewController(viewModel: viewModel)
-        rootViewController?.pushViewController(filterViewController, animated: true)
+        let navigationController = UINavigationController(rootViewController: filterViewController)
+        navigationController.modalPresentationStyle = .fullScreen
+        rootViewController?.present(navigationController, animated: true)
     }
     
 }
 
 extension FilterCoordinator: FilterViewModelDelegate {
+    
     func didTapCancel(viewModel: FilterViewModelProtocol) {
         if let navigationController = rootViewController {
-            navigationController.popViewController(animated: true)
+            navigationController.dismiss(animated: true)
         }
         delegate?.didFinish(self)
     }
     
     func didTapValidate(viewModel: FilterViewModelProtocol) {
         if let navigationController = rootViewController {
-            navigationController.popViewController(animated: true)
+            navigationController.dismiss(animated: true)
         }
         delegate?.didFinish(self)
     }
     
 }
+
+

@@ -12,17 +12,42 @@ import LBCCoreData
 import LBCAPI
 
 public protocol CategoryServiceProtocol {
+    func refreshCategories(completionHandler: @escaping (Result<[Category]?, Error>) -> Void)
     func getCategories(completionHandler: @escaping (Result<[Category]?, Error>) -> Void)
 }
 
 public final class CategoryService: CategoryServiceProtocol {
     
+    private let defaultSortParameters = [["name": true]]
+    
     private init() {}
     
     public static let sharedInstance = CategoryService()
     
+    public var selectedCategories: [Int] = []
+  
+    
     public func getCategories(completionHandler: @escaping (Result<[Category]?, Error>) -> Void) {
-        let sortParameters = [["name": true]]
+        // catch and convert
+       
+        if let categoriesCoreData = CoreDataService.sharedInstance.getAll(value: CategoryCoreData.self, isMaincontext: true, predicate: nil, sortParameters: defaultSortParameters) {
+            let categories = categoriesCoreData.map( { Category(category: $0) })
+            completionHandler(.success(categories))
+        } else {
+            if APIService.sharedInstance.onlineMode != .offline {
+                callWebservice(completionHandler: { [weak self] (result) -> Void in
+                    guard let strongSelf = self else {
+                        completionHandler(.failure(WebServiceErrorMessage.unknownError))
+                        return
+                    }
+                    // catch and convert
+                    strongSelf.getCategoriesFromCoreData(sortParameters: strongSelf.defaultSortParameters, completionHandler: completionHandler)
+                })
+            }
+        }
+    }
+    
+    public func refreshCategories(completionHandler: @escaping (Result<[Category]?, Error>) -> Void) {
         
         if APIService.sharedInstance.onlineMode != .offline {
             callWebservice(completionHandler: { [weak self] (result) -> Void in
@@ -31,11 +56,11 @@ public final class CategoryService: CategoryServiceProtocol {
                     return
                 }
                 // catch and convert
-                strongSelf.getCategoriesFromCoreData(sortParameters: sortParameters, completionHandler: completionHandler)
+                strongSelf.getCategoriesFromCoreData(sortParameters: strongSelf.defaultSortParameters, completionHandler: completionHandler)
             })
         } else {
             // catch and convert
-            getCategoriesFromCoreData(sortParameters: sortParameters, completionHandler: completionHandler)
+            getCategoriesFromCoreData(sortParameters: defaultSortParameters, completionHandler: completionHandler)
         }
     }
     

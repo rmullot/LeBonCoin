@@ -18,6 +18,7 @@
 		7A10397F23E98BB900A1A25F /* FilterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A10397E23E98BB900A1A25F /* FilterViewModel.swift */; };
 		7A10398323E98D6000A1A25F /* AdvertisementDescriptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A10398223E98D6000A1A25F /* AdvertisementDescriptionViewController.swift */; };
 		7A10398523E98D6E00A1A25F /* AdvertisementDescriptionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A10398423E98D6E00A1A25F /* AdvertisementDescriptionViewModel.swift */; };
+		7A218C5623ED0B32007AC8BF /* CategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A218C5523ED0B32007AC8BF /* CategoryCell.swift */; };
 		7A2D931A23EC87CE008DFE51 /* LBCBridge.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A2D931323EC87CE008DFE51 /* LBCBridge.framework */; };
 		7A2D931B23EC87CE008DFE51 /* LBCBridge.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 7A2D931323EC87CE008DFE51 /* LBCBridge.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		7A2D931C23EC87CE008DFE51 /* LBCCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A2D931423EC87CE008DFE51 /* LBCCore.framework */; };
@@ -80,6 +81,7 @@
 		7A10397E23E98BB900A1A25F /* FilterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterViewModel.swift; sourceTree = "<group>"; };
 		7A10398223E98D6000A1A25F /* AdvertisementDescriptionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvertisementDescriptionViewController.swift; sourceTree = "<group>"; };
 		7A10398423E98D6E00A1A25F /* AdvertisementDescriptionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvertisementDescriptionViewModel.swift; sourceTree = "<group>"; };
+		7A218C5523ED0B32007AC8BF /* CategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCell.swift; sourceTree = "<group>"; };
 		7A2D931223EC87CE008DFE51 /* LBCAPI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = LBCAPI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A2D931323EC87CE008DFE51 /* LBCBridge.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = LBCBridge.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A2D931423EC87CE008DFE51 /* LBCCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = LBCCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -146,6 +148,7 @@
 				7A10397823E98AFD00A1A25F /* FilterCoordinator.swift */,
 				7A10397C23E98BAC00A1A25F /* FilterViewController.swift */,
 				7A10397E23E98BB900A1A25F /* FilterViewModel.swift */,
+				7A218C5523ED0B32007AC8BF /* CategoryCell.swift */,
 			);
 			path = Filter;
 			sourceTree = "<group>";
@@ -370,6 +373,7 @@
 				7A10397523E8F0C500A1A25F /* Coordinator.swift in Sources */,
 				7A10398523E98D6E00A1A25F /* AdvertisementDescriptionViewModel.swift in Sources */,
 				7A10397F23E98BB900A1A25F /* FilterViewModel.swift in Sources */,
+				7A218C5623ED0B32007AC8BF /* CategoryCell.swift in Sources */,
 				7A10397B23E98B0F00A1A25F /* AdvertisementDescriptionCoordinator.swift in Sources */,
 				7A10398323E98D6000A1A25F /* AdvertisementDescriptionViewController.swift in Sources */,
 			);

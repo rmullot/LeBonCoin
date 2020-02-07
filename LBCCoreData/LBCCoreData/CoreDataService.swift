@@ -22,6 +22,8 @@ public protocol CoreDataServiceProtocol: CategoriesCoreDataServiceProtocol {
     func saveContext()
     func clearData<T: NSManagedObject>(_ type: T.Type)
     func get<T: NSManagedObject>(value: T.Type, isMaincontext: Bool, predicate: NSPredicate?, sortParameters: [[String: Bool]]?, completionHandler: @escaping CoreDataCallback<T>)
+    func getFirst<T: NSManagedObject>(value: T.Type, isMaincontext: Bool, predicate: NSPredicate?, sortParameters: [[String: Bool]]?) -> T?
+    func getAll<T: NSManagedObject>(value: T.Type, isMaincontext: Bool, predicate: NSPredicate?, sortParameters: [[String: Bool]]?) -> [T]?
 }
 
 public final class CoreDataService: CoreDataServiceProtocol {
@@ -121,12 +123,26 @@ public final class CoreDataService: CoreDataServiceProtocol {
         }
     }
     
-    public func get<T: NSManagedObject>(value: T.Type, isMaincontext: Bool, predicate: NSPredicate? = nil, sortParameters: [[String: Bool]]? = nil) -> T? {
+    public func getFirst<T: NSManagedObject>(value: T.Type, isMaincontext: Bool, predicate: NSPredicate? = nil, sortParameters: [[String: Bool]]? = nil) -> T? {
         do {
             let context = isMaincontext ? mainManagedObjectContext : backgroundManagedObjectContext
             let request = fetchRequest(type: T.self, context: context, predicate: predicate, sortedBy: sortParameters)
             if let fetchResults = try context.fetch(request) as? [T] {
                 return fetchResults.isNotEmpty ? fetchResults[0] : nil
+            }
+            return nil
+        } catch let error {
+            print("ERROR: no \(T.self) in cache  \(error)")
+            return nil
+        }
+    }
+    
+    public func getAll<T: NSManagedObject>(value: T.Type, isMaincontext: Bool, predicate: NSPredicate? = nil, sortParameters: [[String: Bool]]? = nil) -> [T]? {
+        do {
+            let context = isMaincontext ? mainManagedObjectContext : backgroundManagedObjectContext
+            let request = fetchRequest(type: T.self, context: context, predicate: predicate, sortedBy: sortParameters)
+            if let fetchResults = try context.fetch(request) as? [T] {
+                return fetchResults
             }
             return nil
         } catch let error {

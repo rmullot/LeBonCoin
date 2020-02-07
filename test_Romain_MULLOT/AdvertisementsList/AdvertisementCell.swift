@@ -100,6 +100,7 @@ private extension AdvertisementCell {
     func setup() {
         isOpaque = true
         translatesAutoresizingMaskIntoConstraints = true
+        selectionStyle = .none
         setupInterface()
         setupConstraints()
       

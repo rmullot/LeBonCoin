@@ -40,7 +40,7 @@ extension CoreDataService: CategoriesCoreDataServiceProtocol  {
     
     public func getCategory(idCategory: Int) -> CategoryCoreData? {
         let predicate = NSPredicate(format: "%K = %d", #keyPath(CategoryCoreData.idCategory),  idCategory)
-        return get(value: CategoryCoreData.self, isMaincontext: false, predicate: predicate, sortParameters: nil)
+        return getFirst(value: CategoryCoreData.self, isMaincontext: false, predicate: predicate, sortParameters: nil)
     }
 }
 
