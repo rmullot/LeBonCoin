@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="15702" systemVersion="19D76" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="AdvertisementCoreData" representedClassName="AdvertisementCoreData" syncable="YES">
+        <attribute name="creationDate" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="descriptionAdvert" attributeType="String"/>
+        <attribute name="idAdvertisement" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="isUrgent" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="price" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="title" attributeType="String"/>
+        <relationship name="category" maxCount="1" deletionRule="Nullify" destinationEntity="CategoryCoreData" inverseName="advertisements" inverseEntity="CategoryCoreData"/>
+        <relationship name="images" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="ImageCoreData" inverseName="advertisement" inverseEntity="ImageCoreData"/>
+    </entity>
+    <entity name="CategoryCoreData" representedClassName="CategoryCoreData" syncable="YES">
+        <attribute name="idCategory" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="name" attributeType="String"/>
+        <relationship name="advertisements" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="AdvertisementCoreData" inverseName="category" inverseEntity="AdvertisementCoreData"/>
+    </entity>
+    <entity name="ImageCoreData" representedClassName="ImageCoreData" syncable="YES">
+        <attribute name="type" optional="YES" attributeType="String"/>
+        <attribute name="url" optional="YES" attributeType="String"/>
+        <relationship name="advertisement" maxCount="1" deletionRule="Nullify" destinationEntity="AdvertisementCoreData" inverseName="images" inverseEntity="AdvertisementCoreData"/>
+    </entity>
+    <elements>
+        <element name="AdvertisementCoreData" positionX="-244.4296875" positionY="-179.77734375" width="128" height="163"/>
+        <element name="CategoryCoreData" positionX="14.6328125" positionY="0.046875" width="128" height="88"/>
+        <element name="ImageCoreData" positionX="-260.45703125" positionY="63.76953125" width="128" height="88"/>
+    </elements>
+</model>

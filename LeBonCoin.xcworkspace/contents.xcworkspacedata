@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workspace
+   version = "1.0">
+   <FileRef
+      location = "group:test_Romain_MULLOT.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:LBCNetwork/LBCNetwork.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:LBCAPI/LBCAPI.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:LBCAPI/../LBCCore/LBCCore.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:LBCCoreData/LBCCoreData.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:LBCBridge/LBCBridge.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:LBCBridge/../LBCUIKit/LBCUIKit.xcodeproj">
+   </FileRef>
+</Workspace>
