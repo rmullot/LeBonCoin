@@ -16,4 +16,8 @@ extension Date {
         return FormatterService.sharedInstance.dateFormatterWith(key: .iso8601Date).string(from: self)
     }
     
+    public var descriptionDateString: String {
+        return FormatterService.sharedInstance.dateFormatterWith(key: .descriptionDate).string(from: self)
+    }
+    
 }

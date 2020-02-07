@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import LBCBridge
 
 protocol AdvertisementDescriptionCoordinatorDelegate: AnyObject {
     func didFinish(_ coordinator: AdvertisementDescriptionCoordinator)
@@ -24,8 +25,8 @@ final class AdvertisementDescriptionCoordinator: Coordinator {
         self.rootViewController = rootViewController
     }
     
-    func start() {
-        let viewModel = AdvertisementDescriptionViewModel()
+    func start(advertisement: Advertisement) {
+        let viewModel = AdvertisementDescriptionViewModel(advertisement: advertisement)
         viewModel.delegate = self
         let advertisementDescriptionViewController = AdvertisementDescriptionViewController(viewModel: viewModel)
         rootViewController?.pushViewController(advertisementDescriptionViewController, animated: true)
@@ -33,7 +34,7 @@ final class AdvertisementDescriptionCoordinator: Coordinator {
 }
 
 extension AdvertisementDescriptionCoordinator: AdvertisementDescriptionViewModelDelegate {
-    func didTapBack(viewModel: AdvertisementDescriptionViewModelProtocol) {
+    func didTapBack() {
         if let navigationController = rootViewController {
             navigationController.popViewController(animated: true)
         }
