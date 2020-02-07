@@ -22,7 +22,7 @@ final class ApplicationCoordinator: Coordinator {
     }
     
     func start() {
-        let viewModel = AdvertisementsViewModel(advertisementService: AdvertisementService.sharedInstance)
+        let viewModel = AdvertisementsViewModel(advertisementService: AdvertisementService.sharedInstance, categoryService: CategoryService.sharedInstance)
         viewModel.delegate = self
         let advertisementsListViewController = AdvertisementsListViewController(viewModel: viewModel)
         rootViewController.pushViewController(advertisementsListViewController, animated: false)

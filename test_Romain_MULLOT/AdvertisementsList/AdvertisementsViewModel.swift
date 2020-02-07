@@ -21,7 +21,8 @@ protocol AdvertisementsViewModelProtocol: AnyObject {
     func didTapFilter()
     func didTapAdvertisement(index: Int)
     func refreshAdvertisementList(completionHandler: @escaping ()->())
-    init(advertisementService: AdvertisementService)
+    func getAdvertisementList(completionHandler: @escaping ()->())
+    init(advertisementService: AdvertisementService, categoryService: CategoryService)
     var delegate: AdvertisementsViewModelDelegate? { get set }
 }
 
@@ -35,9 +36,11 @@ final class AdvertisementsViewModel: AdvertisementsViewModelProtocol {
     weak var delegate: AdvertisementsViewModelDelegate?
     private var advertisements: [Advertisement]?
     private let advertisementService: AdvertisementService
+    private let categoryService: CategoryService
     
-    init(advertisementService: AdvertisementService) {
+    init(advertisementService: AdvertisementService, categoryService: CategoryService) {
         self.advertisementService = advertisementService
+        self.categoryService = categoryService
     }
     
     var advertisementsCount: Int {
@@ -54,22 +57,33 @@ final class AdvertisementsViewModel: AdvertisementsViewModelProtocol {
     }
     
     func refreshAdvertisementList(completionHandler: @escaping ()->()) {
-        CategoryService.sharedInstance.getCategories { [weak self] (result) in
+        categoryService.refreshCategories { [weak self] (result) in
             guard let strongSelf = self else { return }
             switch result {
             case .success(_):
-                strongSelf.advertisementService.getAdvertisements { [weak self] (result) in
+                strongSelf.advertisementService.refreshAdvertisements { [weak self] (result) in
                     guard let strongSelf = self else { return }
                     switch result {
                     case .success(let advertisements):
                         strongSelf.advertisements = advertisements ?? []
                     default: break
                     }
-                
                     completionHandler()
                 }
             default: completionHandler()
             }
+        }
+    }
+    
+    func getAdvertisementList(completionHandler: @escaping ()->()) {
+        advertisementService.getAdvertisements { [weak self] (result) in
+            guard let strongSelf = self else { return }
+            switch result {
+            case .success(let advertisements):
+                strongSelf.advertisements = advertisements ?? []
+            default: break
+            }
+            completionHandler()
         }
     }
     

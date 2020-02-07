@@ -13,6 +13,12 @@ final class AdvertisementsListViewController: UIViewController {
     
     private let advertisementHeightRow: CGFloat = 115
     
+    private lazy var refreshControl: UIRefreshControl = {
+        let refreshControl = UIRefreshControl.autolayout()
+        refreshControl.addTarget(self, action: .pullToRefresh, for: UIControl.Event.valueChanged)
+        return refreshControl
+    }()
+    
     private lazy var tableView: UITableView = {
         let tableView = UITableView.autolayout()
         tableView.backgroundColor = .white
@@ -23,6 +29,7 @@ final class AdvertisementsListViewController: UIViewController {
         tableView.estimatedRowHeight = advertisementHeightRow
         tableView.registerReusableCell(AdvertisementCell.self)
         tableView.registerReusableView(CategoryFilterTableViewHeader.self)
+         tableView.addSubview(refreshControl)
         return tableView
     }()
     
@@ -31,8 +38,16 @@ final class AdvertisementsListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
-        // Do any additional setup after loading the view.
         viewModel.refreshAdvertisementList { [weak self] in
+            guard let strongSelf = self else { return }
+            strongSelf.tableView.reloadData()
+        }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        // Do any additional setup after loading the view.
+        viewModel.getAdvertisementList { [weak self] in
             guard let strongSelf = self else { return }
             strongSelf.tableView.reloadData()
         }
@@ -54,6 +69,15 @@ extension AdvertisementsListViewController {
     @objc
     func didTapFilterButton(_ sender: UIButton) {
         viewModel.didTapFilter()
+    }
+    
+    @objc
+    func pullToRefresh(_ sender: UIButton) {
+        viewModel.refreshAdvertisementList { [weak self] in
+            guard let strongSelf = self else { return }
+            strongSelf.tableView.reloadData()
+            strongSelf.refreshControl.endRefreshing()
+        }
     }
 }
 
@@ -114,5 +138,6 @@ extension AdvertisementsListViewController: UITableViewDataSource {
 }
 
 private extension Selector {
+    static let pullToRefresh = #selector(AdvertisementsListViewController.pullToRefresh(_:))
     static let didTapFilterButton = #selector(AdvertisementsListViewController.didTapFilterButton(_:))
 }
