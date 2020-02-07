@@ -135,6 +135,14 @@ extension AdvertisementsListViewController: UITableViewDataSource {
         viewModel.didTapAdvertisement(index: indexPath.row)
     }
     
+    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        return UIView()
+    }
+    
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return 1
+    }
+    
 }
 
 private extension Selector {
