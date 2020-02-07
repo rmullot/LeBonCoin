@@ -27,7 +27,7 @@ final public class Advertisement {
     public let isUrgent: Bool
     
     
-    init(idAdvertisement: Int = 0, categoryName: String = "", idCategory: Int = 0, title: String = "", description: String = "", price: Float = 0, creationDate: Date = Date(), imageUrls: [String: String], isUrgent: Bool = false) {
+   public init(idAdvertisement: Int = 0, categoryName: String = "", idCategory: Int = 0, title: String = "", description: String = "", price: Float = 0, creationDate: Date = Date(), imageUrls: [String: String], isUrgent: Bool = false) {
         self.idAdvertisement = idAdvertisement
         self.categoryName = categoryName
         self.idCategory = idCategory

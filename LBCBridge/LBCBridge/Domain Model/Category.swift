@@ -14,7 +14,7 @@ public final class Category {
     public let idCategory: Int
     public let name: String
     
-    init(idCategory: Int = 0, name: String = "") {
+    public init(idCategory: Int = 0, name: String = "") {
         self.idCategory = idCategory
         self.name = name
     }
