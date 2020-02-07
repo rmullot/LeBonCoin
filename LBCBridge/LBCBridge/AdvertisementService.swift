@@ -13,7 +13,8 @@ import LBCAPI
 import CoreData
 
 public protocol AdvertisementServiceProtocol: AnyObject {
-    func getAdvertisements(idCategories: [Int], completionHandler: @escaping (Result<[Advertisement]?, Error>) -> Void)
+    func getAdvertisements(completionHandler: @escaping (Result<[Advertisement]?, Error>) -> Void)
+    func refreshAdvertisements(completionHandler: @escaping (Result<[Advertisement]?, Error>) -> Void)
 }
 
 public final class AdvertisementService: AdvertisementServiceProtocol {
@@ -22,13 +23,23 @@ public final class AdvertisementService: AdvertisementServiceProtocol {
     
     public static let sharedInstance = AdvertisementService()
     
-    public func getAdvertisements(idCategories: [Int] = [], completionHandler: @escaping (Result<[Advertisement]?, Error>) -> Void) {
+    private var predicateSelectCategories: NSPredicate? {
+        guard CategoryService.sharedInstance.selectedCategories.isNotEmpty else { return nil }
+        return NSPredicate(format: "%K IN %@", #keyPath(AdvertisementCoreData.category.idCategory), CategoryService.sharedInstance.selectedCategories)
+    }
+    
+    public func getAdvertisements(completionHandler: @escaping (Result<[Advertisement]?, Error>) -> Void) {
         let sortParameters = [["isUrgent": false], ["creationDate": false]]
         var filterPredicate: NSPredicate? = nil
-        if idCategories.isNotEmpty {
-            filterPredicate = NSPredicate(format: "%@ IN %@", argumentArray: [\AdvertisementCoreData.category.idCategory, idCategories])
+        if CategoryService.sharedInstance.selectedCategories.isNotEmpty {
+            filterPredicate = NSPredicate(format: "%K IN %@", argumentArray: [#keyPath(AdvertisementCoreData.category.idCategory), CategoryService.sharedInstance.selectedCategories])
         }
-        
+        // catch and convert
+        getAdvertisementsFromCoreData(filterPredicate: filterPredicate, sortParameters: sortParameters, completionHandler: completionHandler)
+    }
+    
+    public func refreshAdvertisements(completionHandler: @escaping (Result<[Advertisement]?, Error>) -> Void) {
+        let sortParameters = [["isUrgent": false], ["creationDate": false]]
         if APIService.sharedInstance.onlineMode != .offline {
             callWebservice(completionHandler: { [weak self] (result) -> Void in
                 guard let strongSelf = self else {
@@ -36,11 +47,11 @@ public final class AdvertisementService: AdvertisementServiceProtocol {
                     return
                 }
                 // catch and convert
-                strongSelf.getAdvertisementsFromCoreData(filterPredicate: filterPredicate, sortParameters: sortParameters, completionHandler: completionHandler)
+                strongSelf.getAdvertisementsFromCoreData(filterPredicate: nil, sortParameters: sortParameters, completionHandler: completionHandler)
             })
         } else {
             // catch and convert
-            getAdvertisementsFromCoreData(filterPredicate: filterPredicate, sortParameters: sortParameters, completionHandler: completionHandler)
+            getAdvertisementsFromCoreData(filterPredicate: nil, sortParameters: sortParameters, completionHandler: completionHandler)
         }
     }
     
