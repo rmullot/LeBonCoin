@@ -29,7 +29,7 @@ final class AdvertisementsListViewController: UIViewController {
         tableView.estimatedRowHeight = advertisementHeightRow
         tableView.registerReusableCell(AdvertisementCell.self)
         tableView.registerReusableView(CategoryFilterTableViewHeader.self)
-         tableView.addSubview(refreshControl)
+        tableView.addSubview(refreshControl)
         return tableView
     }()
     

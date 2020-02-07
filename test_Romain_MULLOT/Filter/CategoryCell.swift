@@ -20,20 +20,19 @@ class CategoryCell: UITableViewCell {
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {
-       super.setSelected(selected, animated: animated)   // update UI
+       super.setSelected(selected, animated: animated)
        accessoryType = selected ? .checkmark : .none
     }
     
     func config(viewModel: FilterViewModelProtocol, index: Int) {
         textLabel?.text = viewModel.getName(index: index)
-        let isSelected = viewModel.isSelected(index: index)
-        accessoryType = isSelected ? .checkmark : .none
+        let isChecked = viewModel.isSelected(index: index)
+        accessoryType = isChecked ? .checkmark : .none
     }
     
     override func prepareForReuse() {
         super.prepareForReuse()
         textLabel?.text = ""
-        accessoryType = .none
     }
 
 }
