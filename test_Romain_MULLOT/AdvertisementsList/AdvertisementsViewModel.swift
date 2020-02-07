@@ -22,7 +22,7 @@ protocol AdvertisementsViewModelProtocol: AnyObject {
     func didTapAdvertisement(index: Int)
     func refreshAdvertisementList(completionHandler: @escaping ()->())
     func getAdvertisementList(completionHandler: @escaping ()->())
-    init(advertisementService: AdvertisementService, categoryService: CategoryService)
+    init(advertisementService: AdvertisementServiceProtocol, categoryService: CategoryServiceProtocol)
     var delegate: AdvertisementsViewModelDelegate? { get set }
 }
 
@@ -35,10 +35,10 @@ final class AdvertisementsViewModel: AdvertisementsViewModelProtocol {
     
     weak var delegate: AdvertisementsViewModelDelegate?
     private var advertisements: [Advertisement]?
-    private let advertisementService: AdvertisementService
-    private let categoryService: CategoryService
+    private let advertisementService: AdvertisementServiceProtocol
+    private let categoryService: CategoryServiceProtocol
     
-    init(advertisementService: AdvertisementService, categoryService: CategoryService) {
+    init(advertisementService: AdvertisementServiceProtocol, categoryService: CategoryServiceProtocol) {
         self.advertisementService = advertisementService
         self.categoryService = categoryService
     }
