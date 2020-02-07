@@ -40,11 +40,11 @@ extension ApplicationCoordinator: AdvertisementsViewModelDelegate {
         filterCoordinator.start()
     }
     
-    func didTapAdvertisement(viewModel: AdvertisementDescriptionViewModelProtocol) {
+    func didTapAdvertisement(advertisement: Advertisement) {
         let advertisementDescription = AdvertisementDescriptionCoordinator(rootViewController: rootViewController)
         advertisementDescription.delegate = self
         addChildCoordinator(advertisementDescription)
-        advertisementDescription.start()
+        advertisementDescription.start(advertisement: advertisement)
     }
 }
 

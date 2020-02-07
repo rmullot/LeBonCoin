@@ -20,7 +20,7 @@ final public class Advertisement {
     public let categoryName: String
     public let idCategory: Int
     public let title: String
-    public let description: String
+    public let descriptionAdvert: String
     public let price: Float
     public let creationDate: Date
     public let imageUrls: [String: String]
@@ -32,7 +32,7 @@ final public class Advertisement {
         self.categoryName = categoryName
         self.idCategory = idCategory
         self.title = title
-        self.description = description
+        self.descriptionAdvert = description
         self.price = price
         self.creationDate = creationDate
         self.imageUrls = imageUrls
@@ -44,7 +44,7 @@ final public class Advertisement {
         idCategory = Int(advertisement.category.idCategory)
         categoryName = advertisement.category.name
         title = advertisement.title
-        description = advertisement.description
+        descriptionAdvert = advertisement.descriptionAdvert
         price = advertisement.price
         creationDate = advertisement.creationDate
         if let images = advertisement.images {

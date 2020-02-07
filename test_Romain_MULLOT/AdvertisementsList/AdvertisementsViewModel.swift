@@ -9,6 +9,7 @@
 import Foundation
 import LBCBridge
 import LBCCore
+import LBCNetwork
 
 protocol AdvertisementsViewModelProtocol: AnyObject {
     var advertisementsCount: Int { get }
@@ -26,7 +27,7 @@ protocol AdvertisementsViewModelProtocol: AnyObject {
 
 protocol AdvertisementsViewModelDelegate: AnyObject {
     func didTapFilter(viewModel: AdvertisementsViewModelProtocol)
-    func didTapAdvertisement(viewModel: AdvertisementDescriptionViewModelProtocol)
+    func didTapAdvertisement(advertisement: Advertisement)
 }
 
 final class AdvertisementsViewModel: AdvertisementsViewModelProtocol {
@@ -48,9 +49,8 @@ final class AdvertisementsViewModel: AdvertisementsViewModelProtocol {
     }
     
     func didTapAdvertisement(index: Int) {
-        guard advertisements?.isValidIndex(index) ?? false else { return }
-        let descriptionViewModel = getAdvertisementDescriptionViewModel(index: index)
-        delegate?.didTapAdvertisement(viewModel: descriptionViewModel)
+        guard let advertisement = getAdvertisement(index: index) else { return }
+        delegate?.didTapAdvertisement(advertisement: advertisement)
     }
     
     func refreshAdvertisementList(completionHandler: @escaping ()->()) {
@@ -103,9 +103,5 @@ private extension AdvertisementsViewModel {
     func getAdvertisement(index: Int) -> Advertisement? {
         guard advertisements?.isValidIndex(index) ?? false, let advertisement = advertisements?[index] else { return nil }
         return advertisement
-    }
-    
-    func getAdvertisementDescriptionViewModel(index: Int) -> AdvertisementDescriptionViewModelProtocol {
-        return AdvertisementDescriptionViewModel()
     }
 }

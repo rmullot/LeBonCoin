@@ -16,6 +16,7 @@ protocol FormatterServiceProtocol {
 
 public enum FormatterKey: String {
     case iso8601Date
+    case descriptionDate
     case price
 }
 
@@ -70,7 +71,7 @@ public final class FormatterService: FormatterServiceProtocol {
             return newDateFormatter
         }
     }
-  
+    
 }
 
 private extension FormatterService {
@@ -81,6 +82,11 @@ private extension FormatterService {
             let formatter = DateFormatter()
             formatter.locale = Locale(identifier: "en_US_POSIX")
             formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
+            return formatter
+        case .descriptionDate:
+            let formatter = DateFormatter()
+            formatter.locale = Locale(identifier: "en_US_POSIX")
+            formatter.dateFormat = "yyyy MMM EEEE HH:mm"
             return formatter
         case .price:
             let formatter = NumberFormatter()

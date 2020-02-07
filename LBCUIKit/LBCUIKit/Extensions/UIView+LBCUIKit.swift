@@ -17,6 +17,15 @@ public extension UIView {
         return view
     }
     
+    func anchorToBounds(view: UIView) {
+        NSLayoutConstraint.activate([
+            view.topAnchor.constraint(equalTo: topAnchor),
+            view.leadingAnchor.constraint(equalTo: leadingAnchor),
+            view.bottomAnchor.constraint(equalTo: bottomAnchor),
+            view.trailingAnchor.constraint(equalTo: trailingAnchor)
+        ])
+    }
+    
     func setVerticalContentPriority(_ priority: UILayoutPriority) {
         setContentHuggingPriority(priority, for: .vertical)
         setContentCompressionResistancePriority(priority, for: .vertical)
