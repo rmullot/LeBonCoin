@@ -111,13 +111,6 @@ extension FilterViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         guard let categoryCell = cell as? CategoryCell else { return }
         categoryCell.config(viewModel: viewModel, index: indexPath.row)
-//        if cell.isSelected {
-//            cell.accessoryType = .checkmark
-//            cell.isSelected = true
-//            cell.layoutIfNeeded()
-//        } else {
-//            cell.accessoryType = .none
-//        }
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
