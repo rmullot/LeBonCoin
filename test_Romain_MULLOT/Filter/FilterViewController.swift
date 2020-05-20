@@ -115,6 +115,8 @@ extension FilterViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         viewModel.didSelectCategory(index: indexPath.row)
+        guard let categoryCell = tableView.cellForRow(at: indexPath)  as? CategoryCell else { return }
+        categoryCell.config(viewModel: viewModel, index: indexPath.row)
     }
     
 }
