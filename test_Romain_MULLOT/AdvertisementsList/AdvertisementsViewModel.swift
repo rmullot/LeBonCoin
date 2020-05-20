@@ -76,7 +76,7 @@ final class AdvertisementsViewModel: AdvertisementsViewModelProtocol {
     }
     
     func getAdvertisementList(completionHandler: @escaping ()->()) {
-        advertisementService.getAdvertisements { [weak self] (result) in
+        advertisementService.getAdvertisementsWithFilter { [weak self] (result) in
             guard let strongSelf = self else { return }
             switch result {
             case .success(let advertisements):

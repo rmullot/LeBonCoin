@@ -13,7 +13,7 @@ import LBCAPI
 import CoreData
 
 public protocol AdvertisementServiceProtocol: AnyObject {
-    func getAdvertisements(completionHandler: @escaping (Result<[Advertisement]?, Error>) -> Void)
+    func getAdvertisementsWithFilter(completionHandler: @escaping (Result<[Advertisement]?, Error>) -> Void)
     func refreshAdvertisements(completionHandler: @escaping (Result<[Advertisement]?, Error>) -> Void)
 }
 
@@ -28,7 +28,7 @@ public final class AdvertisementService: AdvertisementServiceProtocol {
         return NSPredicate(format: "%K IN %@", #keyPath(AdvertisementCoreData.category.idCategory), CategoryService.sharedInstance.selectedCategories)
     }
     
-    public func getAdvertisements(completionHandler: @escaping (Result<[Advertisement]?, Error>) -> Void) {
+    public func getAdvertisementsWithFilter(completionHandler: @escaping (Result<[Advertisement]?, Error>) -> Void) {
         let sortParameters = [["isUrgent": false], ["creationDate": false]]
         var filterPredicate: NSPredicate? = nil
         if CategoryService.sharedInstance.selectedCategories.isNotEmpty {
