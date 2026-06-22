@@ -305,7 +305,12 @@
 			);
 			mainGroup = 7A57291223E5D5BB00085478;
 			packageReferences = (
-				AAAAAAAA0000000000000001 /* XCLocalSwiftPackageReference "." */,
+				AAAAAAAA0000000000000031 /* XCLocalSwiftPackageReference "LBCNetwork" */,
+				AAAAAAAA0000000000000032 /* XCLocalSwiftPackageReference "LBCCore" */,
+				AAAAAAAA0000000000000033 /* XCLocalSwiftPackageReference "LBCAPI" */,
+				AAAAAAAA0000000000000034 /* XCLocalSwiftPackageReference "LBCCoreData" */,
+				AAAAAAAA0000000000000035 /* XCLocalSwiftPackageReference "LBCBridge" */,
+				AAAAAAAA0000000000000036 /* XCLocalSwiftPackageReference "LBCUIKit" */,
 			);
 			productRefGroup = 7A57291C23E5D5BB00085478 /* Products */;
 			projectDirPath = "";
@@ -400,35 +405,61 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCLocalSwiftPackageReference section */
-		AAAAAAAA0000000000000001 /* XCLocalSwiftPackageReference "." */ = {
+		AAAAAAAA0000000000000031 /* XCLocalSwiftPackageReference "LBCNetwork" */ = {
 			isa = XCLocalSwiftPackageReference;
-			relativePath = ".";
+			relativePath = LBCNetwork;
+		};
+		AAAAAAAA0000000000000032 /* XCLocalSwiftPackageReference "LBCCore" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = LBCCore;
+		};
+		AAAAAAAA0000000000000033 /* XCLocalSwiftPackageReference "LBCAPI" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = LBCAPI;
+		};
+		AAAAAAAA0000000000000034 /* XCLocalSwiftPackageReference "LBCCoreData" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = LBCCoreData;
+		};
+		AAAAAAAA0000000000000035 /* XCLocalSwiftPackageReference "LBCBridge" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = LBCBridge;
+		};
+		AAAAAAAA0000000000000036 /* XCLocalSwiftPackageReference "LBCUIKit" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = LBCUIKit;
 		};
 /* End XCLocalSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
 		AAAAAAAA0000000000000010 /* LBCNetwork */ = {
 			isa = XCSwiftPackageProductDependency;
+			package = AAAAAAAA0000000000000031 /* XCLocalSwiftPackageReference "LBCNetwork" */;
 			productName = LBCNetwork;
 		};
 		AAAAAAAA0000000000000011 /* LBCCore */ = {
 			isa = XCSwiftPackageProductDependency;
+			package = AAAAAAAA0000000000000032 /* XCLocalSwiftPackageReference "LBCCore" */;
 			productName = LBCCore;
 		};
 		AAAAAAAA0000000000000012 /* LBCAPI */ = {
 			isa = XCSwiftPackageProductDependency;
+			package = AAAAAAAA0000000000000033 /* XCLocalSwiftPackageReference "LBCAPI" */;
 			productName = LBCAPI;
 		};
 		AAAAAAAA0000000000000013 /* LBCCoreData */ = {
 			isa = XCSwiftPackageProductDependency;
+			package = AAAAAAAA0000000000000034 /* XCLocalSwiftPackageReference "LBCCoreData" */;
 			productName = LBCCoreData;
 		};
 		AAAAAAAA0000000000000014 /* LBCBridge */ = {
 			isa = XCSwiftPackageProductDependency;
+			package = AAAAAAAA0000000000000035 /* XCLocalSwiftPackageReference "LBCBridge" */;
 			productName = LBCBridge;
 		};
 		AAAAAAAA0000000000000015 /* LBCUIKit */ = {
 			isa = XCSwiftPackageProductDependency;
+			package = AAAAAAAA0000000000000036 /* XCLocalSwiftPackageReference "LBCUIKit" */;
 			productName = LBCUIKit;
 		};
 /* End XCSwiftPackageProductDependency section */
