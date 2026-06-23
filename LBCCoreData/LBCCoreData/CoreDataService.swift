@@ -42,8 +42,16 @@ public final class CoreDataService: CoreDataServiceProtocol {
         //...
         NSPersistentContainer.defaultDirectoryURL()
         let momdName = "LBCCoreData"
-        
-        guard let modelURL = Bundle(for: type(of: self)).url(forResource: momdName, withExtension:"momd") else {
+
+        // The compiled model (.momd) lives in the framework bundle when built as
+        // an Xcode framework, but in `Bundle.module` when built via SwiftPM.
+        #if SWIFT_PACKAGE
+        let modelBundle = Bundle.module
+        #else
+        let modelBundle = Bundle(for: type(of: self))
+        #endif
+
+        guard let modelURL = modelBundle.url(forResource: momdName, withExtension:"momd") else {
                 fatalError("Error loading model from bundle")
         }
 

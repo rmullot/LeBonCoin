@@ -6,6 +6,7 @@
 //  Copyright © 2020 Romain Mullot. All rights reserved.
 //
 
+import Foundation
 import LBCNetwork
 
 public protocol APIServiceProtocol: APIAdvertisementsProtocol, APICategoriesProtocol {
