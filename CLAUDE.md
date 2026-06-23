@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Overview
 
-iOS app (Swift 5, deployment target iOS 11.0) displaying a list of classified ads (the leboncoin "paperclip" sample API). UI is UIKit-only, built programmatically — no storyboards for the feature screens. There is no dependency manager: everything is plain Xcode subprojects/dynamic frameworks wired together in a single workspace (no CocoaPods/Carthage/SPM).
+iOS app (Swift 5, deployment target iOS 15.0) displaying a list of classified ads (the leboncoin "paperclip" sample API). UI is UIKit-only, built programmatically — no storyboards for the feature screens. There is no dependency manager: everything is plain Xcode subprojects/dynamic frameworks wired together in a single workspace (via SPM).
 
 ## Build & Test
 
