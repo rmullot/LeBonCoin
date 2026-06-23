@@ -24,10 +24,22 @@ final class ApplicationCoordinator: Coordinator {
     func start() {
         let viewModel = AdvertisementsViewModel(advertisementService: AdvertisementService.sharedInstance, categoryService: CategoryService.sharedInstance)
         viewModel.delegate = self
+        setupNavBarAppearance()
         let advertisementsListViewController = AdvertisementsListViewController(viewModel: viewModel)
         rootViewController.pushViewController(advertisementsListViewController, animated: false)
         window?.rootViewController = rootViewController
         window?.makeKeyAndVisible()
+    }
+    
+    private func setupNavBarAppearance() {
+        let navBarAppearance = UINavigationBarAppearance()
+        navBarAppearance.configureWithOpaqueBackground()
+        navBarAppearance.backgroundColor = .white
+        navBarAppearance.titleTextAttributes = [.foregroundColor: UIColor.black]
+        UINavigationBar.appearance().standardAppearance = navBarAppearance
+        UINavigationBar.appearance().compactAppearance = navBarAppearance
+        UINavigationBar.appearance().compactScrollEdgeAppearance = navBarAppearance
+        UINavigationBar.appearance().scrollEdgeAppearance = navBarAppearance
     }
     
 }
