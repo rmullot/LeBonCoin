@@ -82,7 +82,6 @@ private extension CoreDataService {
                     }
                     
                     if let imageSmall = imagesUrl.small, let imageResultObject = NSEntityDescription.insertNewObject(forEntityName: String(describing: ImageCoreData.self), into: backgroundManagedObjectContext) as? ImageCoreData {
-                        
                         imageResultObject.type = "small"
                         imageResultObject.url = imageSmall
                         imagesCoreData.insert(imageResultObject)

@@ -31,6 +31,7 @@ public final class InjectionMapService: InjectionMapServiceProtocol {
       builder()
     }
   }
+    
   private func resolve<T, F>(_ builder: (F) -> T) -> T {
     let key = String(describing: F.self)
     if let registration = registrations[key] as? Registration<F> {

@@ -53,6 +53,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2182D2EEB2C1B3B69608622B /* .gitignore */ = {isa = PBXFileReference; includeInIndex = 1; path = .gitignore; sourceTree = "<group>"; };
+		77D7FC3522CA7BBEF0B175B2 /* CLAUDE.md */ = {isa = PBXFileReference; includeInIndex = 1; path = CLAUDE.md; sourceTree = "<group>"; };
 		7A10396B23E8A55B00A1A25F /* AdvertisementsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvertisementsViewModel.swift; sourceTree = "<group>"; };
 		7A10396D23E8AC2E00A1A25F /* AdvertisementCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvertisementCell.swift; sourceTree = "<group>"; };
 		7A10397123E8D99400A1A25F /* CategoryFilterTableViewHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryFilterTableViewHeader.swift; sourceTree = "<group>"; };
@@ -79,6 +81,7 @@
 		7A57294323E5D5BE00085478 /* test_Romain_MULLOTUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = test_Romain_MULLOTUITests.swift; sourceTree = "<group>"; };
 		7A57294523E5D5BE00085478 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7A57295123E5DD4C00085478 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		DB446719B032CCE87323740C /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +115,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0D1923E021F4E9BF2D2D669F /* Git */ = {
+			isa = PBXGroup;
+			children = (
+				2182D2EEB2C1B3B69608622B /* .gitignore */,
+			);
+			name = Git;
+			sourceTree = "<group>";
+		};
+		3D2805BA29254EBD294B1AB1 /* SwiftLint */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = SwiftLint;
+			sourceTree = "<group>";
+		};
 		7A10397323E8E8A800A1A25F /* AdvertisementsList */ = {
 			isa = PBXGroup;
 			children = (
@@ -154,6 +172,11 @@
 		7A57291223E5D5BB00085478 = {
 			isa = PBXGroup;
 			children = (
+				DB446719B032CCE87323740C /* README.md */,
+				3D2805BA29254EBD294B1AB1 /* SwiftLint */,
+				0D1923E021F4E9BF2D2D669F /* Git */,
+				8566D1551E041252B6EA8DD0 /* SwiftGen */,
+				BBF4FE3478B7B51A8A78B2D1 /* Claude */,
 				7A57295123E5DD4C00085478 /* Default-568h@2x.png */,
 				7A57291D23E5D5BB00085478 /* test_Romain_MULLOT */,
 				7A57293723E5D5BE00085478 /* test_Romain_MULLOTTests */,
@@ -206,6 +229,21 @@
 				7A57294523E5D5BE00085478 /* Info.plist */,
 			);
 			path = test_Romain_MULLOTUITests;
+			sourceTree = "<group>";
+		};
+		8566D1551E041252B6EA8DD0 /* SwiftGen */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = SwiftGen;
+			sourceTree = "<group>";
+		};
+		BBF4FE3478B7B51A8A78B2D1 /* Claude */ = {
+			isa = PBXGroup;
+			children = (
+				77D7FC3522CA7BBEF0B175B2 /* CLAUDE.md */,
+			);
+			name = Claude;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
