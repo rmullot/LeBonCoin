@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0F6871B7919ED335D6332015 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A39E0BE639F95543FAF4CE39 /* SceneDelegate.swift */; };
 		7A10396C23E8A55B00A1A25F /* AdvertisementsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A10396B23E8A55B00A1A25F /* AdvertisementsViewModel.swift */; };
 		7A10396E23E8AC2E00A1A25F /* AdvertisementCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A10396D23E8AC2E00A1A25F /* AdvertisementCell.swift */; };
 		7A10397223E8D99400A1A25F /* CategoryFilterTableViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A10397123E8D99400A1A25F /* CategoryFilterTableViewHeader.swift */; };
@@ -53,8 +54,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		2182D2EEB2C1B3B69608622B /* .gitignore */ = {isa = PBXFileReference; includeInIndex = 1; path = .gitignore; sourceTree = "<group>"; };
-		77D7FC3522CA7BBEF0B175B2 /* CLAUDE.md */ = {isa = PBXFileReference; includeInIndex = 1; path = CLAUDE.md; sourceTree = "<group>"; };
+		2182D2EEB2C1B3B69608622B /* .gitignore */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		77D7FC3522CA7BBEF0B175B2 /* CLAUDE.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; path = CLAUDE.md; sourceTree = "<group>"; };
 		7A10396B23E8A55B00A1A25F /* AdvertisementsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvertisementsViewModel.swift; sourceTree = "<group>"; };
 		7A10396D23E8AC2E00A1A25F /* AdvertisementCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvertisementCell.swift; sourceTree = "<group>"; };
 		7A10397123E8D99400A1A25F /* CategoryFilterTableViewHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryFilterTableViewHeader.swift; sourceTree = "<group>"; };
@@ -81,7 +82,8 @@
 		7A57294323E5D5BE00085478 /* test_Romain_MULLOTUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = test_Romain_MULLOTUITests.swift; sourceTree = "<group>"; };
 		7A57294523E5D5BE00085478 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7A57295123E5DD4C00085478 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
-		DB446719B032CCE87323740C /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; path = README.md; sourceTree = "<group>"; };
+		A39E0BE639F95543FAF4CE39 /* SceneDelegate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		DB446719B032CCE87323740C /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,13 +123,6 @@
 				2182D2EEB2C1B3B69608622B /* .gitignore */,
 			);
 			name = Git;
-			sourceTree = "<group>";
-		};
-		3D2805BA29254EBD294B1AB1 /* SwiftLint */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = SwiftLint;
 			sourceTree = "<group>";
 		};
 		7A10397323E8E8A800A1A25F /* AdvertisementsList */ = {
@@ -173,9 +168,7 @@
 			isa = PBXGroup;
 			children = (
 				DB446719B032CCE87323740C /* README.md */,
-				3D2805BA29254EBD294B1AB1 /* SwiftLint */,
 				0D1923E021F4E9BF2D2D669F /* Git */,
-				8566D1551E041252B6EA8DD0 /* SwiftGen */,
 				BBF4FE3478B7B51A8A78B2D1 /* Claude */,
 				7A57295123E5DD4C00085478 /* Default-568h@2x.png */,
 				7A57291D23E5D5BB00085478 /* test_Romain_MULLOT */,
@@ -207,6 +200,7 @@
 				7A57292F23E5D5BD00085478 /* Info.plist */,
 				7A10397423E8F0C500A1A25F /* Coordinator.swift */,
 				7A10397623E8F1D500A1A25F /* ApplicationCoordinator.swift */,
+				A39E0BE639F95543FAF4CE39 /* SceneDelegate.swift */,
 			);
 			path = test_Romain_MULLOT;
 			sourceTree = "<group>";
@@ -229,13 +223,6 @@
 				7A57294523E5D5BE00085478 /* Info.plist */,
 			);
 			path = test_Romain_MULLOTUITests;
-			sourceTree = "<group>";
-		};
-		8566D1551E041252B6EA8DD0 /* SwiftGen */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = SwiftGen;
 			sourceTree = "<group>";
 		};
 		BBF4FE3478B7B51A8A78B2D1 /* Claude */ = {
@@ -406,6 +393,7 @@
 				7A218C5623ED0B32007AC8BF /* CategoryCell.swift in Sources */,
 				7A10397B23E98B0F00A1A25F /* AdvertisementDescriptionCoordinator.swift in Sources */,
 				7A10398323E98D6000A1A25F /* AdvertisementDescriptionViewController.swift in Sources */,
+				0F6871B7919ED335D6332015 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
